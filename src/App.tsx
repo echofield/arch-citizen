@@ -35,6 +35,7 @@ export default function App() {
   };
 
   const navigateTo = (page: Page) => {
+    if (page === currentPage) return;
     setCurrentPage(page);
     scrollToTop();
   };
@@ -72,6 +73,22 @@ export default function App() {
             
             button[style*="position: fixed"][style*="top: 24px"] span:last-child {
               display: none !important;
+            }
+          }
+          
+          /* Transition fluide globale pour toutes les pages */
+          .page-wrapper {
+            animation: pageFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+          
+          @keyframes pageFadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(12px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
             }
           }
         `}
@@ -266,12 +283,14 @@ export default function App() {
         </nav>
 
         {/* PAGES */}
-        {currentPage === 'home' && <Home onNavigate={navigateTo} />}
-        {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
-        {currentPage === 'quetes' && <Quetes onNavigate={navigateTo} />}
-        {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
-        {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
-        {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}
+        <div key={currentPage} className="page-wrapper">
+          {currentPage === 'home' && <Home onNavigate={navigateTo} />}
+          {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
+          {currentPage === 'quetes' && <Quetes onNavigate={navigateTo} />}
+          {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
+          {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
+          {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}
+        </div>
       </div>
     </>
   );
