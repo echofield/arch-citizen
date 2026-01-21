@@ -23,7 +23,7 @@ export function CarteInteractive() {
             /* Animation de tracé progressif — encre qui se dessine */
             @keyframes drawMap {
               from {
-                stroke-dashoffset: 1;
+                stroke-dashoffset: 2000;
               }
               to {
                 stroke-dashoffset: 0;
@@ -38,7 +38,8 @@ export function CarteInteractive() {
               fill: none;
               opacity: 0.6;
               transition: all 400ms ease;
-              stroke-dasharray: 1;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
               animation: drawMap 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             }
 
