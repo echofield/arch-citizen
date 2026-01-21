@@ -116,9 +116,12 @@ export default function Home({ onNavigate }: HomeProps) {
         </p>
 
         {/* CTA principal */}
-        <button
-          onClick={() => onNavigate('passeport')}
+        <a
+          href="https://buy.stripe.com/3cI6oIcPD7sC0yl2dJ5J603"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
+            display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
             fontSize: '11px',
             fontWeight: 500,
@@ -127,6 +130,7 @@ export default function Home({ onNavigate }: HomeProps) {
             padding: '18px 48px',
             background: '#0E3F2F',
             color: '#FAF9F6',
+            textDecoration: 'none',
             border: 'none',
             cursor: 'pointer',
             transition: 'background 400ms ease'
@@ -134,8 +138,8 @@ export default function Home({ onNavigate }: HomeProps) {
           onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(14, 63, 47, 0.85)'}
           onMouseLeave={(e) => e.currentTarget.style.background = '#0E3F2F'}
         >
-          Entrer dans la cité
-        </button>
+          Devenir citoyen
+        </a>
       </section>
 
       {/* IMAGE STÈLE — après hero */}
