@@ -1,8 +1,8 @@
 /**
  * PAGE CHEMIN — ARCHÉ
  * Le Chemin
- * 
- * La ville se traverse autant qu'elle se regarde
+ *
+ * Something is unfolding, step after step.
  */
 
 import { BackButton } from '../components/BackButton';
@@ -16,8 +16,9 @@ export default function Chemin({ onNavigate }: CheminProps) {
   return (
     <>
       {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
+
       {/* Titre */}
-      <section 
+      <section
         style={{
           maxWidth: '640px',
           margin: '0 auto',
@@ -25,75 +26,140 @@ export default function Chemin({ onNavigate }: CheminProps) {
           textAlign: 'center'
         }}
       >
-        <h1 
+        <h1
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '42px',
             fontWeight: 500,
             letterSpacing: '0.02em',
             color: '#0E3F2F',
-            marginBottom: '12px',
+            marginBottom: '80px',
             lineHeight: 1.2
           }}
         >
           Le Chemin
         </h1>
-
-        {/* Subtitle */}
-        <p 
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '18px',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            color: '#2B2B2B',
-            opacity: 0.7,
-            marginBottom: '80px',
-            lineHeight: 1.8
-          }}
-        >
-          La ville se traverse autant qu'elle se regarde.
-        </p>
       </section>
 
-      {/* SVG Chemin */}
+      {/* SVG — architecture becoming readable */}
       <section
         style={{
-          maxWidth: '1080px',
-          margin: '0 auto 120px',
+          maxWidth: '720px',
+          margin: '0 auto 100px',
           padding: '0 40px'
         }}
       >
         <CheminSVG />
       </section>
 
-      {/* Texte final */}
+      {/* Three architectural statements */}
       <section
         style={{
           maxWidth: '640px',
           margin: '0 auto 160px',
-          padding: '0 40px',
-          textAlign: 'center'
+          padding: '0 40px'
         }}
       >
-        <p
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '17px',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            lineHeight: 1.9,
-            color: '#2B2B2B',
-            opacity: 0.6
-          }}
-        >
-          Le chemin n'indique pas où arriver.<br />
-          Il indique comment marcher.
-        </p>
+        <div style={{ marginBottom: '60px' }}>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '16px',
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              color: '#0E3F2F',
+              marginBottom: '8px',
+              opacity: 0.8
+            }}
+          >
+            Observer
+          </p>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '17px',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              color: '#2B2B2B',
+              opacity: 0.6
+            }}
+          >
+            La ville se laisse d'abord lire.
+          </p>
+        </div>
+
+        <div style={{ marginBottom: '60px' }}>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '16px',
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              color: '#0E3F2F',
+              marginBottom: '8px',
+              opacity: 0.8
+            }}
+          >
+            Traverser
+          </p>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '17px',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              color: '#2B2B2B',
+              opacity: 0.6
+            }}
+          >
+            Le mouvement révèle la structure.
+          </p>
+        </div>
+
+        <div>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '16px',
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              color: '#0E3F2F',
+              marginBottom: '8px',
+              opacity: 0.8
+            }}
+          >
+            Comprendre
+          </p>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '17px',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              color: '#2B2B2B',
+              opacity: 0.6
+            }}
+          >
+            Ce qui persiste devient visible.
+          </p>
+        </div>
       </section>
 
-      {/* FOOTER — simplifié */}
-      <footer 
+      {/* Séparateur */}
+      <div
+        style={{
+          maxWidth: '80px',
+          height: '0.5px',
+          background: 'rgba(0, 0, 0, 0.15)',
+          margin: '0 auto 100px'
+        }}
+      />
+
+      {/* FOOTER */}
+      <footer
         style={{
           maxWidth: '640px',
           margin: '0 auto',
@@ -101,7 +167,7 @@ export default function Chemin({ onNavigate }: CheminProps) {
           textAlign: 'center'
         }}
       >
-        <h2 
+        <h2
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '42px',
@@ -114,7 +180,7 @@ export default function Chemin({ onNavigate }: CheminProps) {
           ARCHÉ
         </h2>
 
-        <p 
+        <p
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '14px',
@@ -128,7 +194,7 @@ export default function Chemin({ onNavigate }: CheminProps) {
           Paris · République
         </p>
 
-        <p 
+        <p
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '15px',
