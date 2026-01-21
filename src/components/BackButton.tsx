@@ -1,4 +1,4 @@
-﻿/**
+/**
  * BACK BUTTON â€” ARCHÃ‰
  * Bouton retour discret avec flÃ¨che manuscrite gravÃ©e
  * Texte "Retour Ã  la citÃ©" au hover
@@ -79,13 +79,7 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
         </span>
       </button>
 
-      {/* Responsive mobile */}
-      <style>{
-        @media (max-width: 768px) {
-          button span { display: none; }
-          button { left: 24px; }
-        }
-      }</style>
+      {/* Responsive mobile - styles gérés dans App.tsx */}
     </>
   );
 }
