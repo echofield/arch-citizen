@@ -10,11 +10,12 @@ interface BlasonProps {
 export function Blason({ onClick }: BlasonProps) {
   return (
     <div
+      className="blason-container"
       style={{
         position: 'fixed',
-        top: '32px',
+        top: '24px',
         left: '32px',
-        zIndex: 1000,
+        zIndex: 1001,
         width: '50px',
         height: '62px'
       }}
@@ -61,6 +62,7 @@ export function Blason({ onClick }: BlasonProps) {
 
         {/* SVG Blason */}
         <svg
+          className="blason-svg"
           width="50"
           height="62"
           viewBox="0 0 50 62"
@@ -207,6 +209,21 @@ export function Blason({ onClick }: BlasonProps) {
           100% {
             transform: translate(-50%, -30px) scale(0.5);
             opacity: 0;
+          }
+        }
+        
+        /* Responsive mobile */
+        @media (max-width: 768px) {
+          .blason-container {
+            top: 20px !important;
+            left: 20px !important;
+            width: 40px !important;
+            height: 50px !important;
+          }
+          
+          .blason-svg {
+            width: 40px !important;
+            height: 50px !important;
           }
         }
       `}</style>
