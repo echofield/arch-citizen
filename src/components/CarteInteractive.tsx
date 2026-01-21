@@ -6,7 +6,13 @@
 
 export function CarteInteractive() {
   return (
-    <div style={{ color: '#0E3F2F', width: '100%', maxWidth: '100%' }}>
+    <div 
+      style={{ 
+        color: '#0E3F2F', 
+        width: '100%', 
+        maxWidth: '100%'
+      }}
+    >
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
