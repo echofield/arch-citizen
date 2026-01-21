@@ -192,9 +192,9 @@ export default function Carte({ onNavigate }: CarteProps) {
       {/* VISUEL DE CARTE — géométrie de Paris + lieux symboliques */}
       <section
         style={{
-          maxWidth: selectedLieu ? '2400px' : 'none',
+          maxWidth: selectedLieu ? '1400px' : '1200px',
           margin: '-100px auto 100px',
-          padding: '0 80px',
+          padding: '0 40px',
           display: 'flex',
           gap: '100px',
           alignItems: 'flex-start',
@@ -212,10 +212,11 @@ export default function Carte({ onNavigate }: CarteProps) {
             justifyContent: 'center',
             transition: 'all 500ms ease',
             width: selectedLieu ? 'auto' : '100%',
-            position: 'relative'
+            position: 'relative',
+            maxWidth: '100%'
           }}
         >
-          <div style={{ position: 'relative', width: '100%' }}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '100%' }}>
             <CarteInteractive />
             
             {/* 7 lieux symboliques — overlay sur la carte */}

@@ -11,11 +11,13 @@ export function CarteInteractive() {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2037.566 1615.5"
+        preserveAspectRatio="xMidYMid meet"
         style={{
           width: '100%',
           maxWidth: '100%',
           height: 'auto',
-          display: 'block'
+          display: 'block',
+          maxHeight: '80vh'
         }}
       >
         <style>
@@ -77,6 +79,7 @@ export function CarteInteractive() {
             @media (max-width: 768px) {
               svg {
                 padding: 0 24px;
+                max-height: 70vh;
               }
               
               /* Désactiver hover sur tactile */
@@ -87,6 +90,14 @@ export function CarteInteractive() {
                   stroke-width: 3;
                   opacity: 0.6;
                 }
+              }
+            }
+            
+            /* Desktop - limiter la taille maximale */
+            @media (min-width: 769px) {
+              svg {
+                max-width: 1200px;
+                margin: 0 auto;
               }
             }
           `}
