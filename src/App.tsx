@@ -76,9 +76,10 @@ export default function App() {
               display: none !important;
             }
             
-            /* Blason responsive - ensure visibility */
+            /* Blason responsive - ensure visibility above nav */
             .blason-container {
-              z-index: 1001 !important;
+              z-index: 1002 !important;
+              top: 16px !important;
             }
           }
           
