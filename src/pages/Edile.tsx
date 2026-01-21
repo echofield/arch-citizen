@@ -3,9 +3,16 @@
  * Porte silencieuse
  */
 
-export default function Edile() {
+import { BackButton } from '../components/BackButton';
+
+interface EdileProps {
+  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+}
+
+export default function Edile({ onNavigate }: EdileProps) {
   return (
     <>
+      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
       {/* Titre */}
       <section 
         style={{

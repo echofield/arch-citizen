@@ -258,10 +258,10 @@ export default function App() {
 
         {/* PAGES */}
         {currentPage === 'home' && <Home onNavigate={navigateTo} />}
-        {currentPage === 'carte' && <Carte />}
-        {currentPage === 'quetes' && <Quetes />}
-        {currentPage === 'passeport' && <Passeport />}
-        {currentPage === 'edile' && <Edile />}
+        {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
+        {currentPage === 'quetes' && <Quetes onNavigate={navigateTo} />}
+        {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
+        {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
         {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}
       </div>
     </>

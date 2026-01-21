@@ -3,9 +3,19 @@
  * 100 € · Document de passage
  */
 
-export default function Passeport() {
+import { ImageWithFilter } from '../components/ImageWithFilter';
+import { BackButton } from '../components/BackButton';
+
+interface PasseportProps {
+  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+}
+
+export default function Passeport({ onNavigate }: PasseportProps) {
   return (
     <>
+      {/* Bouton retour */}
+      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
+
       {/* Titre */}
       <section 
         style={{
@@ -41,25 +51,17 @@ export default function Passeport() {
       >
         <div
           style={{
-            width: '100%',
-            height: '420px',
-            background: 'linear-gradient(135deg, rgba(14, 63, 47, 0.04) 0%, rgba(14, 63, 47, 0.08) 100%)',
-            border: '0.5px solid rgba(0, 0, 0, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden'
+            border: '0.5px solid rgba(0, 0, 0, 0.1)'
           }}
         >
-          <img
+          <ImageWithFilter
             src="/images/passeport.png"
             alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.6
-            }}
+            height="420px"
+            priority={true}
+            imageOpacity={0.6}
+            overlayOpacity={0.04}
+            saturation={-8}
           />
         </div>
       </section>

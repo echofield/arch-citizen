@@ -5,9 +5,16 @@
  * Pas de catalogue, pas de liste
  */
 
-export default function Quetes() {
+import { BackButton } from '../components/BackButton';
+
+interface QuetesProps {
+  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+}
+
+export default function Quetes({ onNavigate }: QuetesProps) {
   return (
     <>
+      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
       {/* Titre */}
       <section 
         style={{

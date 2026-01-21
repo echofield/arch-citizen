@@ -5,6 +5,7 @@
  */
 
 import { useState } from 'react';
+import { ImageWithFilter } from '../components/ImageWithFilter';
 
 interface CercleProps {
   onNavigate: (page: 'home' | 'passeport') => void;
@@ -294,23 +295,18 @@ export default function Cercle({ onNavigate }: CercleProps) {
               {convergence.image && (
                 <div
                   style={{
-                    width: '100%',
-                    height: '200px',
                     marginBottom: '28px',
-                    overflow: 'hidden',
                     border: '0.5px solid rgba(0, 0, 0, 0.08)'
                   }}
                 >
-                  <img
+                  <ImageWithFilter
                     src={convergence.image}
                     alt=""
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      opacity: 0.3,
-                      filter: 'grayscale(100%)'
-                    }}
+                    height="200px"
+                    priority={false}
+                    imageOpacity={0.3}
+                    overlayOpacity={0.04}
+                    saturation={-10}
                   />
                 </div>
               )}

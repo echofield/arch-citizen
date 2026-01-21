@@ -7,6 +7,7 @@
  */
 
 import { useState } from 'react';
+import { BackButton } from '../components/BackButton';
 
 interface Lieu {
   id: string;
@@ -76,7 +77,11 @@ const lieux: Lieu[] = [
   }
 ];
 
-export default function Carte() {
+interface CarteProps {
+  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+}
+
+export default function Carte({ onNavigate }: CarteProps) {
   const [hoveredDistrict, setHoveredDistrict] = useState<string | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [hoveredLieu, setHoveredLieu] = useState<Lieu | null>(null);
@@ -119,6 +124,7 @@ export default function Carte() {
 
   return (
     <>
+      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
       {/* Titre */}
       <section 
         style={{

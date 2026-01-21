@@ -5,6 +5,7 @@
 
 import { Blason } from '../components/Blason';
 import { PortalTransition } from '../components/PortalTransition';
+import { ImageWithFilter } from '../components/ImageWithFilter';
 import { useState, useCallback } from 'react';
 
 interface HomeProps {
@@ -162,18 +163,20 @@ export default function Home({ onNavigate }: HomeProps) {
             overflow: 'hidden'
           }}
         >
-          <img
+          <ImageWithFilter
             src="/images/blason.png"
             alt=""
+            aspectRatio="4/3"
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.15,
               position: 'absolute',
               top: 0,
-              left: 0
+              left: 0,
+              width: '100%',
+              height: '100%'
             }}
+            imageOpacity={0.15}
+            overlayOpacity={0}
+            saturation={0}
           />
         </div>
 
@@ -261,25 +264,15 @@ export default function Home({ onNavigate }: HomeProps) {
         }}
       >
         {/* Image — passage parisien */}
-        <div
-          style={{
-            width: '100%',
-            height: '320px',
-            marginBottom: '50px',
-            overflow: 'hidden',
-            border: '0.5px solid rgba(0, 0, 0, 0.08)'
-          }}
-        >
-          <img
+        <div style={{ marginBottom: '50px', border: '0.5px solid rgba(0, 0, 0, 0.08)' }}>
+          <ImageWithFilter
             src="/images/passageparisien.png"
             alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.5,
-              filter: 'grayscale(40%)'
-            }}
+            height="320px"
+            priority={true}
+            imageOpacity={0.5}
+            overlayOpacity={0.04}
+            saturation={-8}
           />
         </div>
 

@@ -1,43 +1,47 @@
+﻿/**
+ * BACK BUTTON â€” ARCHÃ‰
+ * Bouton retour discret, ARCHÃ‰-compatible
+ */
+
 interface BackButtonProps {
   onClick: () => void;
   label?: string;
 }
 
-/**
- * BACK BUTTON — Composant réutilisable
- * Style éditorial cohérent avec ARCHÉ
- */
 export function BackButton({ onClick, label = 'Retour' }: BackButtonProps) {
   return (
     <button
       onClick={onClick}
       style={{
         position: 'fixed',
-        top: 'clamp(20px, 4vw, 32px)',
-        left: 'clamp(20px, 4vw, 32px)',
+        top: '24px',
+        left: '40px',
+        zIndex: 1001,
         background: 'transparent',
         border: 'none',
+        cursor: 'pointer',
+        fontFamily: 'Cormorant Garamond, Georgia, serif',
+        fontSize: '14px',
+        fontWeight: 300,
+        fontStyle: 'italic',
+        color: '#2B2B2B',
+        opacity: 0.4,
+        letterSpacing: '0.08em',
+        padding: '8px 12px',
+        transition: 'opacity 300ms ease',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
-        fontSize: 'clamp(11px, 2vw, 13px)',
-        color: '#6B6455',
-        cursor: 'pointer',
-        opacity: 0.4,
-        transition: 'opacity 400ms',
-        zIndex: 1000,
-        fontFamily: 'Cormorant Garamond, serif',
-        letterSpacing: '0.05em',
-        padding: '8px 12px',
-        WebkitTapHighlightColor: 'transparent'
+        gap: '6px',
       }}
-      onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
-      onMouseLeave={(e) => e.currentTarget.style.opacity = '0.4'}
-      onTouchStart={(e) => e.currentTarget.style.opacity = '0.9'}
-      onTouchEnd={(e) => e.currentTarget.style.opacity = '0.4'}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = '0.8';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = '0.4';
+      }}
     >
-      <span style={{ fontSize: 'clamp(16px, 3vw, 20px)' }}>‹</span>
-      <span className="back-label">{label}</span>
+      <span style={{ fontSize: '16px', lineHeight: 1 }}>â†©</span>
+      <span>{label}</span>
     </button>
   );
 }
