@@ -393,7 +393,7 @@ export default function Cercle({ onNavigate }: CercleProps) {
             opacity: 0.7
           }}
         >
-          Le Passeport n'est pas un objet fini.
+          Le Passeport est un objet infini.
           <br />
           Il évolue avec celui qui le porte.
         </p>
@@ -408,7 +408,7 @@ export default function Cercle({ onNavigate }: CercleProps) {
             opacity: 0.7
           }}
         >
-          Certains porteront des marques que d'autres ne verront jamais.
+          Certains porteront des traces que d'autres ne verront jamais.
         </p>
       </section>
 
@@ -576,7 +576,7 @@ export default function Cercle({ onNavigate }: CercleProps) {
         >
           Les citoyens fondateurs ne sont pas des clients.
           <br />
-          Ils participent à ce que la cité deviendra — et à ce qu'elle permettra.
+          Ils participent à ce que la cité deviendra, et à ce qu'elle permettra.
         </p>
 
         {/* CTA */}

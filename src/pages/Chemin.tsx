@@ -44,16 +44,16 @@ export default function Chemin({ onNavigate }: CheminProps) {
       {/* SVG — architecture becoming readable with anchored labels */}
       <section
         style={{
-          maxWidth: '720px',
-          margin: '0 auto 160px',
+          maxWidth: '960px',
+          margin: '0 auto 180px',
           padding: '0 40px',
           position: 'relative'
         }}
       >
-        <div style={{ position: 'relative', width: '100%' }}>
+        <div style={{ position: 'relative', width: '100%', marginBottom: '80px' }}>
           <CheminSVG />
           
-          {/* Labels anchored to structural clusters */}
+          {/* Labels anchored to structural stages */}
           <div
             style={{
               position: 'absolute',
@@ -64,16 +64,16 @@ export default function Chemin({ onNavigate }: CheminProps) {
               pointerEvents: 'none'
             }}
           >
-            {/* Observer — under first cluster (left, low), smallest, quietest */}
-            {/* Cluster 1 centered at x=70 (17.5% of 400), y=95 (79% from top of 120) */}
+            {/* Stage 1: Observer — under TRACE (left, low), smallest, quietest */}
             <div
               style={{
                 position: 'absolute',
-                left: '17.5%',
-                top: '79%',
+                left: '11.875%',
+                top: '86%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
-                marginTop: '12px'
+                marginTop: '20px',
+                width: '140px'
               }}
             >
               <p
@@ -104,16 +104,16 @@ export default function Chemin({ onNavigate }: CheminProps) {
               </p>
             </div>
 
-            {/* Traverser — under middle cluster, slightly more presence */}
-            {/* Cluster 2 centered at x=161 (40.25% of 400), y=80 (67% from top of 120) */}
+            {/* Stage 2: Traverser — under MODULE, slightly more presence */}
             <div
               style={{
                 position: 'absolute',
-                left: '40.25%',
-                top: '67%',
+                left: '31.25%',
+                top: '78%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
-                marginTop: '12px'
+                marginTop: '20px',
+                width: '160px'
               }}
             >
               <p
@@ -144,16 +144,16 @@ export default function Chemin({ onNavigate }: CheminProps) {
               </p>
             </div>
 
-            {/* Comprendre — under final cluster (right, high), strongest presence */}
-            {/* Cluster 3 centered at x=268 (67% of 400), y=60 (50% from top of 120) */}
+            {/* Stage 3: Comprendre — under EDIFICE (right-center, high), stronger presence */}
             <div
               style={{
                 position: 'absolute',
-                left: '67%',
-                top: '50%',
+                left: '55%',
+                top: '58%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
-                marginTop: '12px'
+                marginTop: '20px',
+                width: '180px'
               }}
             >
               <p
@@ -181,6 +181,46 @@ export default function Chemin({ onNavigate }: CheminProps) {
                 }}
               >
                 Ce qui persiste devient visible.
+              </p>
+            </div>
+
+            {/* Stage 4: Édifier — under CITY (right, highest), strongest presence */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '83.75%',
+                top: '50%',
+                transform: 'translateX(-50%)',
+                textAlign: 'center',
+                marginTop: '20px',
+                width: '200px'
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontSize: '16px',
+                  fontWeight: 500,
+                  letterSpacing: '0.1em',
+                  color: '#0E3F2F',
+                  marginBottom: '6px',
+                  opacity: 0.9
+                }}
+              >
+                Édifier
+              </p>
+              <p
+                style={{
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontSize: '17px',
+                  fontWeight: 300,
+                  fontStyle: 'italic',
+                  lineHeight: 1.6,
+                  color: '#2B2B2B',
+                  opacity: 0.6
+                }}
+              >
+                La forme devient partageable.
               </p>
             </div>
           </div>
