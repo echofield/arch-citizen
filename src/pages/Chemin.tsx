@@ -68,8 +68,8 @@ export default function Chemin({ onNavigate }: CheminProps) {
             <div
               style={{
                 position: 'absolute',
-                left: '11.875%',
-                top: '86%',
+                left: '9.4%',
+                top: '85%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
                 marginTop: '20px',
@@ -104,12 +104,12 @@ export default function Chemin({ onNavigate }: CheminProps) {
               </p>
             </div>
 
-            {/* Stage 2: Traverser — under MODULE, slightly more presence */}
+            {/* Stage 2: Traverser — under ORGANIZATION, slightly more presence */}
             <div
               style={{
                 position: 'absolute',
-                left: '31.25%',
-                top: '78%',
+                left: '28.9%',
+                top: '82.5%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
                 marginTop: '20px',
@@ -144,12 +144,12 @@ export default function Chemin({ onNavigate }: CheminProps) {
               </p>
             </div>
 
-            {/* Stage 3: Comprendre — under EDIFICE (right-center, high), stronger presence */}
+            {/* Stage 3: Comprendre — under CIRCULATION (right-center, high), stronger presence */}
             <div
               style={{
                 position: 'absolute',
-                left: '55%',
-                top: '58%',
+                left: '55.6%',
+                top: '79%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
                 marginTop: '20px',
@@ -184,12 +184,12 @@ export default function Chemin({ onNavigate }: CheminProps) {
               </p>
             </div>
 
-            {/* Stage 4: Édifier — under CITY (right, highest), strongest presence */}
+            {/* Stage 4: Édifier — under COHERENT STRUCTURE (right, highest), strongest presence */}
             <div
               style={{
                 position: 'absolute',
-                left: '83.75%',
-                top: '50%',
+                left: '83.3%',
+                top: '74%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
                 marginTop: '20px',
