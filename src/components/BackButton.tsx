@@ -61,8 +61,9 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
           />
         </svg>
 
-        {/* Texte au hover */}
+        {/* Texte au hover - masqué en dessous de 768px */}
         <span
+          className="back-button-label"
           style={{
             fontFamily: 'Cormorant Garamond, serif',
             fontStyle: 'italic',
@@ -79,7 +80,14 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
         </span>
       </button>
 
-      {/* Responsive mobile - styles gérés dans App.tsx */}
+      {/* Responsive mobile - masquer le texte en dessous de 768px */}
+      <style>{`
+        @media (max-width: 767px) {
+          .back-button-label {
+            display: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

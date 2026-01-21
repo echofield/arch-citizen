@@ -18,6 +18,28 @@ interface ImageWithFilterProps {
   saturation?: number;
 }
 
+// Détecter le support WebP du navigateur
+function supportsWebP(): Promise<boolean> {
+  return new Promise((resolve) => {
+    const webP = new Image();
+    webP.onload = webP.onerror = () => {
+      resolve(webP.height === 2);
+    };
+    webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+  });
+}
+
+// Convertir un path PNG/JPG en WebP
+function convertToWebP(src: string): string {
+  if (src.endsWith('.png')) {
+    return src.replace('.png', '.webp');
+  }
+  if (src.endsWith('.jpg') || src.endsWith('.jpeg')) {
+    return src.replace(/\.(jpg|jpeg)$/, '.webp');
+  }
+  return src;
+}
+
 export function ImageWithFilter({
   src,
   alt = '',
@@ -32,25 +54,56 @@ export function ImageWithFilter({
 }: ImageWithFilterProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string>(src);
 
   useEffect(() => {
-    if (priority && src) {
-      const existingLink = document.querySelector(`link[rel="preload"][as="image"][href="${src}"]`);
-      if (!existingLink) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        document.head.appendChild(link);
+    // Réinitialiser les états quand src change
+    setLoaded(false);
+    setError(false);
+
+    // Détecter le support WebP et déterminer la source de l'image
+    supportsWebP().then((supported) => {
+      let finalSrc = src;
+      
+      // Si WebP est supporté et que l'image est PNG/JPG, utiliser WebP
+      if (supported && (src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.jpeg'))) {
+        finalSrc = convertToWebP(src);
       }
-    }
-    
-    // Précharger l'image même sans priority pour smooth transition
-    const img = new Image();
-    img.src = src;
-    img.onload = () => setLoaded(true);
-    img.onerror = () => setError(true);
-  }, [priority, src]);
+      
+      setImageSrc(finalSrc);
+
+      // Preload si priority
+      if (priority && finalSrc) {
+        const existingLink = document.querySelector(`link[rel="preload"][as="image"][href="${finalSrc}"]`);
+        if (!existingLink) {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = finalSrc;
+          document.head.appendChild(link);
+        }
+      }
+      
+      // Précharger l'image pour smooth transition
+      const img = new Image();
+      img.src = finalSrc;
+      img.onload = () => setLoaded(true);
+      img.onerror = () => {
+        // Si WebP échoue et qu'on avait une source PNG/JPG, essayer le fallback
+        if (finalSrc !== src && finalSrc.endsWith('.webp')) {
+          const fallbackImg = new Image();
+          fallbackImg.src = src;
+          fallbackImg.onload = () => {
+            setImageSrc(src);
+            setLoaded(true);
+          };
+          fallbackImg.onerror = () => setError(true);
+        } else {
+          setError(true);
+        }
+      };
+    });
+  }, [src, priority]);
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
@@ -135,14 +188,20 @@ export function ImageWithFilter({
       {/* Overlay léger pour unifier */}
       <div style={overlayStyle} />
 
-      {/* Image réelle */}
+      {/* Image réelle - WebP avec fallback PNG/JPG automatique */}
       <img
-        src={src}
+        src={imageSrc}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
+        onError={() => {
+          // Fallback: si WebP échoue, charger PNG/JPG (la logique est dans useEffect)
+          // Ce handler sert de sécurité supplémentaire
+          if (!loaded && !error) {
+            setError(true);
+          }
+        }}
         style={imageStyle}
       />
 

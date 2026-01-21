@@ -55,7 +55,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
           }}
         >
           <ImageWithFilter
-            src="/images/passeport.jpg"
+            src="/images/passeport.webp"
             alt=""
             height="420px"
             priority={true}
@@ -135,9 +135,11 @@ export default function Passeport({ onNavigate }: PasseportProps) {
           100 €
         </p>
 
-        {/* CTA */}
+        {/* CTA Stripe */}
         <a
-          href="mailto:contact@arche.city?subject=Devenir%20Citoyen%20ARCHÉ"
+          href="https://buy.stripe.com/3cI6oIcPD7sC0yl2dJ5J603"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
@@ -154,7 +156,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
           onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(14, 63, 47, 0.85)'}
           onMouseLeave={(e) => e.currentTarget.style.background = '#0E3F2F'}
         >
-          Devenir citoyen
+          Obtenir le Passeport — 100 €
         </a>
       </section>
 
