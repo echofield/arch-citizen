@@ -266,7 +266,7 @@ export default function Home({ onNavigate }: HomeProps) {
         {/* Image — passage parisien */}
         <div style={{ marginBottom: '50px', border: '0.5px solid rgba(0, 0, 0, 0.08)' }}>
           <ImageWithFilter
-            src="/images/passageparisien.png"
+            src="/images/passageparisien.jpg"
             alt=""
             height="320px"
             priority={true}

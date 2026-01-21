@@ -260,22 +260,22 @@ export default function Cercle({ onNavigate }: CercleProps) {
             {
               name: 'Mémoire',
               description: 'ce qui a été vu, nommé, préservé.',
-              image: '/images/cercle-memoire.png'
+              image: '/images/cercle-memoire.jpg'
             },
             {
               name: 'Passage',
               description: 'ce qui relie, les seuils, les axes invisibles.',
-              image: '/images/cerclepassage.png'
+              image: '/images/cerclepassage.jpg'
             },
             {
               name: 'Transmission',
               description: 'ce qui circule entre ceux qui marchent.',
-              image: '/images/cercletransmission.png'
+              image: '/images/cercletransmission.jpg'
             },
             {
               name: 'Création',
               description: "ce qui n'a jamais existé avant.",
-              image: '/images/cerclecreation.png'
+              image: '/images/cerclecreation.jpg'
             },
             {
               name: 'Conscience',

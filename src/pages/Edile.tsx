@@ -12,7 +12,7 @@ interface EdileProps {
 export default function Edile({ onNavigate }: EdileProps) {
   return (
     <>
-      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
+      {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
       {/* Titre */}
       <section 
         style={{

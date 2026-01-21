@@ -14,7 +14,7 @@ interface QuetesProps {
 export default function Quetes({ onNavigate }: QuetesProps) {
   return (
     <>
-      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
+      {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
       {/* Titre */}
       <section 
         style={{

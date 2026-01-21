@@ -44,6 +44,12 @@ export function ImageWithFilter({
         document.head.appendChild(link);
       }
     }
+    
+    // Précharger l'image même sans priority pour smooth transition
+    const img = new Image();
+    img.src = src;
+    img.onload = () => setLoaded(true);
+    img.onerror = () => setError(true);
   }, [priority, src]);
 
   const containerStyle: React.CSSProperties = {
@@ -74,11 +80,12 @@ export function ImageWithFilter({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    transition: 'opacity 400ms ease, filter 400ms ease',
+    transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
     opacity: loaded ? imageOpacity : 0,
     filter: loaded
       ? `grayscale(${Math.abs(saturation) * 10}%) saturate(${100 + saturation}%)`
-      : 'blur(8px) grayscale(100%)',
+      : 'blur(20px) grayscale(100%)',
+    transform: loaded ? 'scale(1)' : 'scale(1.05)',
   };
 
   if (error) {
@@ -112,7 +119,23 @@ export function ImageWithFilter({
 
   return (
     <div className={className} style={containerStyle}>
+      {/* Placeholder blur progressif pendant chargement */}
+      {!loaded && !error && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, #FAF9F6 0%, #F0EDE8 100%)',
+            animation: 'pulse 2s ease-in-out infinite',
+            zIndex: 0,
+          }}
+        />
+      )}
+
+      {/* Overlay léger pour unifier */}
       <div style={overlayStyle} />
+
+      {/* Image réelle */}
       <img
         src={src}
         alt={alt}
@@ -122,6 +145,14 @@ export function ImageWithFilter({
         onError={() => setError(true)}
         style={imageStyle}
       />
+
+      {/* Animation CSS */}
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; }
+        }
+      `}</style>
     </div>
   );
 }

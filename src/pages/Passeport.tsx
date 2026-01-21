@@ -14,7 +14,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
   return (
     <>
       {/* Bouton retour */}
-      {onNavigate && <BackButton onClick={() => onNavigate('home')} />}
+      {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
 
       {/* Titre */}
       <section 
@@ -55,7 +55,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
           }}
         >
           <ImageWithFilter
-            src="/images/passeport.png"
+            src="/images/passeport.jpg"
             alt=""
             height="420px"
             priority={true}
