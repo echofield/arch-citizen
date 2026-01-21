@@ -45,8 +45,12 @@ export default function Chemin({ onNavigate }: CheminProps) {
         style={{
           maxWidth: '900px',
           margin: '0 auto 120px',
-          padding: '120px 40px',
-          position: 'relative'
+          padding: '60px 40px',
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '200px'
         }}
       >
         {/* Labels positioned at line level */}
@@ -56,6 +60,7 @@ export default function Chemin({ onNavigate }: CheminProps) {
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '15px',
             maxWidth: '900px',
+            width: '100%',
             margin: '0 auto',
             alignItems: 'center'
           }}
