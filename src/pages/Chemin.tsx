@@ -41,26 +41,26 @@ export default function Chemin({ onNavigate }: CheminProps) {
         </h1>
       </section>
 
-      {/* SVG — 4 moments avec ligne qui se transforme */}
+      {/* SVG — Structure continue qui évolue */}
       <section
         style={{
-          maxWidth: '1200px',
-          margin: '0 auto 180px',
+          maxWidth: '900px',
+          margin: '0 auto 120px',
           padding: '0 40px',
           position: 'relative'
         }}
       >
-        <div style={{ position: 'relative', width: '100%', marginBottom: '120px' }}>
+        <div style={{ position: 'relative', width: '100%', marginBottom: '70px' }}>
           <CheminSVG />
         </div>
 
-        {/* Labels sous chaque moment */}
+        {/* Labels sous la structure */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '40px',
-            maxWidth: '1000px',
+            gap: '15px',
+            maxWidth: '900px',
             margin: '0 auto'
           }}
         >

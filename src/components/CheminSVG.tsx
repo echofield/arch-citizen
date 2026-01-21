@@ -1,7 +1,7 @@
 /**
  * CHEMIN SVG — ARCHÉ
- * 4 moments distincts avec une ligne qui se transforme
- * Observer → Traverser → Comprendre → Édifier
+ * Structure unique qui évolue : Observer → Traverser → Comprendre → Édifier
+ * Une seule illustration continue qui se transforme
  */
 
 export function CheminSVG() {
@@ -14,7 +14,7 @@ export function CheminSVG() {
       }}
     >
       <svg
-        viewBox="0 0 1000 300"
+        viewBox="0 0 900 200"
         preserveAspectRatio="xMidYMid meet"
         style={{
           width: '100%',
@@ -30,205 +30,185 @@ export function CheminSVG() {
               to { stroke-dashoffset: 0; }
             }
 
-            .moment-1 * {
-              stroke: currentColor;
-              fill: none;
-              stroke-width: 1;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-              opacity: 0.6;
-              stroke-dasharray: 2000;
-              stroke-dashoffset: 2000;
-              animation: drawChemin 2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-            }
-
-            .moment-2 * {
-              stroke: currentColor;
-              fill: none;
-              stroke-width: 1.2;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-              opacity: 0.7;
-              stroke-dasharray: 2000;
-              stroke-dashoffset: 2000;
-              animation: drawChemin 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
-            }
-
-            .moment-3 * {
-              stroke: currentColor;
-              fill: none;
-              stroke-width: 1.4;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-              opacity: 0.8;
-              stroke-dasharray: 2000;
-              stroke-dashoffset: 2000;
-              animation: drawChemin 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
-            }
-
-            .moment-4 * {
-              stroke: currentColor;
-              fill: none;
-              stroke-width: 1.6;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-              opacity: 0.9;
-              stroke-dasharray: 2000;
-              stroke-dashoffset: 2000;
-              animation: drawChemin 2.6s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
-            }
-
-            .connecting-line {
+            .evolving-structure * {
               stroke: currentColor;
               fill: none;
               stroke-linecap: round;
               stroke-linejoin: round;
             }
 
-            .line-1 {
-              stroke-width: 0.8;
+            .zone-1 * {
+              stroke-width: 0.7;
               opacity: 0.5;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
+              animation: drawChemin 2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+            }
+
+            .zone-2 * {
+              stroke-width: 0.9;
+              opacity: 0.65;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
+              animation: drawChemin 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+            }
+
+            .zone-3 * {
+              stroke-width: 1.1;
+              opacity: 0.75;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
+              animation: drawChemin 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+            }
+
+            .zone-4 * {
+              stroke-width: 1.3;
+              opacity: 0.85;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
+              animation: drawChemin 2.6s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+            }
+
+            .base-line {
+              stroke: currentColor;
+              fill: none;
+              stroke-linecap: round;
+            }
+
+            .base-1 {
+              stroke-width: 0.5;
+              opacity: 0.4;
               stroke-dasharray: 2 2;
             }
 
-            .line-2 {
-              stroke-width: 1;
+            .base-2 {
+              stroke-width: 0.7;
+              opacity: 0.5;
+              stroke-dasharray: 2000;
+              stroke-dashoffset: 2000;
+              animation: drawChemin 2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+            }
+
+            .base-3 {
+              stroke-width: 0.9;
               opacity: 0.6;
               stroke-dasharray: 2000;
               stroke-dashoffset: 2000;
-              animation: drawChemin 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+              animation: drawChemin 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
             }
 
-            .line-3 {
+            .base-4 {
               stroke-width: 1.2;
               opacity: 0.7;
               stroke-dasharray: 2000;
               stroke-dashoffset: 2000;
-              animation: drawChemin 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
-            }
-
-            .line-4 {
-              stroke-width: 1.5;
-              opacity: 0.8;
-              stroke-dasharray: 2000;
-              stroke-dashoffset: 2000;
-              animation: drawChemin 2.4s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+              animation: drawChemin 2.4s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
             }
           `}
         </style>
 
-        {/* MOMENT 1: OBSERVER — Fenêtre avec perspective de rue parisienne */}
-        <g className="moment-1" transform="translate(50, 50)">
-          {/* Fenêtre (cadre) */}
-          <rect x="0" y="0" width="120" height="100" rx="2" strokeWidth="1" />
-          
-          {/* Perspective de rue (lignes de fuite) */}
-          <line x1="60" y1="20" x2="20" y2="100" />
-          <line x1="60" y1="20" x2="100" y2="100" />
-          <line x1="60" y1="20" x2="40" y2="100" />
-          <line x1="60" y1="20" x2="80" y2="100" />
-          
-          {/* Ligne d'horizon */}
-          <line x1="30" y1="50" x2="90" y2="50" strokeWidth="0.8" />
-          
-          {/* Œil stylisé (très subtil) */}
-          <ellipse cx="60" cy="35" rx="8" ry="5" strokeWidth="0.6" opacity="0.4" />
-          <line x1="60" y1="30" x2="60" y2="40" strokeWidth="0.5" opacity="0.3" />
+        {/* STRUCTURE CONTINUE QUI ÉVOLUE — une seule illustration qui se transforme */}
+
+        {/* ZONE 1: OBSERVER — Perspective qui émerge (gauche, très subtile) */}
+        <g className="zone-1">
+          {/* Fenêtre très subtile */}
+          <rect x="20" y="40" width="70" height="50" rx="1" strokeWidth="0.6" />
+          {/* Lignes de perspective (très fines) */}
+          <line x1="55" y1="48" x2="35" y2="85" strokeWidth="0.5" />
+          <line x1="55" y1="48" x2="75" y2="85" strokeWidth="0.5" />
+          <line x1="55" y1="48" x2="45" y2="85" strokeWidth="0.4" />
+          <line x1="55" y1="48" x2="65" y2="85" strokeWidth="0.4" />
+          {/* Horizon subtil */}
+          <line x1="35" y1="60" x2="75" y2="60" strokeWidth="0.4" />
         </g>
 
-        {/* MOMENT 2: TRAVERSER — Plan de rues vu du dessus */}
-        <g className="moment-2" transform="translate(280, 50)">
+        {/* ZONE 2: TRAVERSER — Plan de rues (transition, se connecte à zone 1) */}
+        <g className="zone-2">
           {/* Rues qui se croisent */}
-          <line x1="0" y1="50" x2="120" y2="50" />
-          <line x1="60" y1="0" x2="60" y2="100" />
-          
+          <line x1="100" y1="65" x2="200" y2="65" strokeWidth="0.8" />
+          <line x1="150" y1="30" x2="150" y2="100" strokeWidth="0.8" />
           {/* Rues secondaires */}
-          <line x1="30" y1="0" x2="30" y2="100" strokeWidth="0.8" />
-          <line x1="90" y1="0" x2="90" y2="100" strokeWidth="0.8" />
-          <line x1="0" y1="25" x2="120" y2="25" strokeWidth="0.8" />
-          <line x1="0" y1="75" x2="120" y2="75" strokeWidth="0.8" />
-          
-          {/* Carrefour central */}
-          <circle cx="60" cy="50" r="3" fill="currentColor" opacity="0.6" />
-          
-          {/* Point/marcheur qui avance */}
-          <circle cx="45" cy="50" r="2" fill="currentColor" opacity="0.8" />
+          <line x1="125" y1="30" x2="125" y2="100" strokeWidth="0.6" />
+          <line x1="175" y1="30" x2="175" y2="100" strokeWidth="0.6" />
+          <line x1="100" y1="50" x2="200" y2="50" strokeWidth="0.6" />
+          <line x1="100" y1="80" x2="200" y2="80" strokeWidth="0.6" />
+          {/* Point de mouvement */}
+          <circle cx="135" cy="65" r="1.2" fill="currentColor" opacity="0.6" />
         </g>
 
-        {/* MOMENT 3: COMPRENDRE — Seuil qui émerge, architecture apparaît */}
-        <g className="moment-3" transform="translate(510, 50)">
-          {/* Lignes de rue qui deviennent architecture */}
-          <line x1="0" y1="80" x2="120" y2="80" strokeWidth="1.2" />
-          
-          {/* Seuil/porte qui émerge */}
-          <rect x="40" y="50" width="40" height="30" rx="2" strokeWidth="1.3" />
-          
-          {/* Arche/passage */}
-          <path d="M 50 80 Q 60 60 70 80" strokeWidth="1.2" />
-          
-          {/* Lignes architecturales verticales */}
-          <line x1="20" y1="50" x2="20" y2="100" strokeWidth="1" />
-          <line x1="100" y1="50" x2="100" y2="100" strokeWidth="1" />
-          
-          {/* Structure qui émerge */}
-          <line x1="40" y1="50" x2="80" y2="50" strokeWidth="1.3" />
-          <line x1="50" y1="50" x2="50" y2="80" strokeWidth="1.1" />
-          <line x1="70" y1="50" x2="70" y2="80" strokeWidth="1.1" />
+        {/* ZONE 3: COMPRENDRE — Architecture émerge (transition vers structure) */}
+        <g className="zone-3">
+          {/* Base architecturale */}
+          <line x1="220" y1="90" x2="350" y2="90" strokeWidth="1" />
+          {/* Seuils/arches qui apparaissent */}
+          <path d="M 240 90 Q 250 72 260 90" strokeWidth="0.9" />
+          <path d="M 280 90 Q 290 72 300 90" strokeWidth="0.9" />
+          <path d="M 320 90 Q 330 72 340 90" strokeWidth="0.9" />
+          {/* Lignes verticales (structure émerge) */}
+          <line x1="230" y1="55" x2="230" y2="90" strokeWidth="0.9" />
+          <line x1="270" y1="55" x2="270" y2="90" strokeWidth="0.9" />
+          <line x1="310" y1="55" x2="310" y2="90" strokeWidth="0.9" />
+          <line x1="350" y1="55" x2="350" y2="90" strokeWidth="0.9" />
+          {/* Ligne supérieure */}
+          <line x1="230" y1="55" x2="350" y2="55" strokeWidth="1" />
         </g>
 
-        {/* MOMENT 4: ÉDIFIER — Façade Haussmannienne simplifiée */}
-        <g className="moment-4" transform="translate(740, 50)">
-          {/* Base de la façade */}
-          <line x1="0" y1="100" x2="120" y2="100" strokeWidth="1.8" />
-          
-          {/* Ligne de toit/corniche */}
-          <line x1="0" y1="20" x2="120" y2="20" strokeWidth="1.8" />
-          
-          {/* Modules répétés (fenêtres) */}
-          <rect x="10" y="40" width="20" height="25" rx="1" strokeWidth="1.2" />
-          <rect x="35" y="40" width="20" height="25" rx="1" strokeWidth="1.2" />
-          <rect x="60" y="40" width="20" height="25" rx="1" strokeWidth="1.2" />
-          <rect x="85" y="40" width="20" height="25" rx="1" strokeWidth="1.2" />
-          
-          {/* Lignes verticales (rythme Haussmannien) */}
-          <line x1="20" y1="20" x2="20" y2="100" strokeWidth="1.3" />
-          <line x1="45" y1="20" x2="45" y2="100" strokeWidth="1.3" />
-          <line x1="70" y1="20" x2="70" y2="100" strokeWidth="1.3" />
-          <line x1="95" y1="20" x2="95" y2="100" strokeWidth="1.3" />
-          
+        {/* ZONE 4: ÉDIFIER — Façade Haussmannienne complète (droite, structure finale) */}
+        <g className="zone-4">
+          {/* Base solide */}
+          <line x1="380" y1="95" x2="850" y2="95" strokeWidth="1.4" />
+          {/* Corniche supérieure */}
+          <line x1="380" y1="30" x2="850" y2="30" strokeWidth="1.4" />
+          {/* Bays verticales (rythme Haussmannien) */}
+          <line x1="420" y1="30" x2="420" y2="95" strokeWidth="1.2" />
+          <line x1="480" y1="30" x2="480" y2="95" strokeWidth="1.2" />
+          <line x1="540" y1="30" x2="540" y2="95" strokeWidth="1.2" />
+          <line x1="600" y1="30" x2="600" y2="95" strokeWidth="1.2" />
+          <line x1="660" y1="30" x2="660" y2="95" strokeWidth="1.2" />
+          <line x1="720" y1="30" x2="720" y2="95" strokeWidth="1.2" />
+          <line x1="780" y1="30" x2="780" y2="95" strokeWidth="1.2" />
+          {/* Fenêtres (modules répétés) */}
+          <rect x="400" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="460" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="520" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="580" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="640" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="700" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
+          <rect x="760" y="52" width="16" height="20" rx="0.5" strokeWidth="1" />
           {/* Niveau intermédiaire */}
-          <line x1="0" y1="65" x2="120" y2="65" strokeWidth="1.2" />
+          <line x1="380" y1="68" x2="850" y2="68" strokeWidth="1.1" />
+          {/* Arches (arcade) */}
+          <path d="M 404 95 Q 408 85 412 95" strokeWidth="1" />
+          <path d="M 464 95 Q 468 85 472 95" strokeWidth="1" />
+          <path d="M 524 95 Q 528 85 532 95" strokeWidth="1" />
+          <path d="M 584 95 Q 588 85 592 95" strokeWidth="1" />
+          <path d="M 644 95 Q 648 85 652 95" strokeWidth="1" />
+          <path d="M 704 95 Q 708 85 712 95" strokeWidth="1" />
+          <path d="M 764 95 Q 768 85 772 95" strokeWidth="1" />
         </g>
 
-        {/* LIGNE QUI RELIE — se transforme à travers les 4 moments */}
-        
-        {/* Segment 1: Ligne fine, tremblante, fragmentée (sous Observer) */}
+        {/* LIGNE DE BASE CONTINUE — se transforme sous la structure */}
         <path
-          className="connecting-line line-1"
-          d="M 110 200 Q 115 198 120 200 Q 125 202 130 200 Q 135 198 140 200"
+          className="base-line base-1"
+          d="M 20 150 Q 30 148 40 150 Q 50 152 60 150"
         />
-        
-        {/* Segment 2: Ligne plus affirmée, commence à se ramifier (sous Traverser) */}
         <path
-          className="connecting-line line-2"
-          d="M 340 200 L 400 200"
+          className="base-line base-2"
+          d="M 90 150 L 230 150"
         />
-        <line x1="370" y1="200" x2="370" y2="195" className="connecting-line line-2" strokeWidth="0.8" opacity="0.5" />
-        
-        {/* Segment 3: Ligne architecturale, angles droits apparaissent (sous Comprendre) */}
         <path
-          className="connecting-line line-3"
-          d="M 570 200 L 620 200 L 630 195 L 640 200 L 650 195 L 660 200"
+          className="base-line base-3"
+          d="M 280 150 L 380 150"
         />
-        
-        {/* Segment 4: Ligne solide, structurée, presque une corniche (sous Édifier) */}
         <path
-          className="connecting-line line-4"
-          d="M 800 200 L 900 200"
+          className="base-line base-4"
+          d="M 380 150 L 850 150"
         />
-        <line x1="800" y1="200" x2="800" y2="195" className="connecting-line line-4" strokeWidth="1" opacity="0.6" />
-        <line x1="850" y1="200" x2="850" y2="195" className="connecting-line line-4" strokeWidth="1" opacity="0.6" />
-        <line x1="900" y1="200" x2="900" y2="195" className="connecting-line line-4" strokeWidth="1" opacity="0.6" />
+        {/* Détails architecturaux sur la ligne finale */}
+        <line x1="420" y1="150" x2="420" y2="145" className="base-line base-4" strokeWidth="0.7" opacity="0.5" />
+        <line x1="540" y1="150" x2="540" y2="145" className="base-line base-4" strokeWidth="0.7" opacity="0.5" />
+        <line x1="660" y1="150" x2="660" y2="145" className="base-line base-4" strokeWidth="0.7" opacity="0.5" />
+        <line x1="780" y1="150" x2="780" y2="145" className="base-line base-4" strokeWidth="0.7" opacity="0.5" />
       </svg>
     </div>
   );
