@@ -17,7 +17,7 @@ export function CarteInteractive() {
           maxWidth: '100%',
           height: 'auto',
           display: 'block',
-          maxHeight: '80vh'
+          maxHeight: '72vh'
         }}
       >
         <style>
@@ -96,7 +96,7 @@ export function CarteInteractive() {
             /* Desktop - limiter la taille maximale */
             @media (min-width: 769px) {
               svg {
-                max-width: 1200px;
+                max-width: 1080px;
                 margin: 0 auto;
               }
             }

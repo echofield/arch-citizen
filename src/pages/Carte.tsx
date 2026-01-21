@@ -158,7 +158,7 @@ export default function Carte({ onNavigate }: CarteProps) {
             fontStyle: 'italic',
             color: '#2B2B2B',
             opacity: 0.7,
-            marginBottom: '30px',
+            marginBottom: '80px',
             lineHeight: 1.8
           }}
         >
@@ -192,7 +192,7 @@ export default function Carte({ onNavigate }: CarteProps) {
       {/* VISUEL DE CARTE — géométrie de Paris + lieux symboliques */}
       <section
         style={{
-          maxWidth: selectedLieu ? '1400px' : '1200px',
+          maxWidth: selectedLieu ? '1260px' : '1080px',
           margin: '-100px auto 100px',
           padding: '0 40px',
           display: 'flex',
