@@ -13,7 +13,7 @@ export function Blason({ onClick }: BlasonProps) {
       className="blason-container"
       style={{
         position: 'fixed',
-        top: '24px',
+        top: '80px',
         left: '32px',
         zIndex: 1001,
         width: '50px',
@@ -215,7 +215,7 @@ export function Blason({ onClick }: BlasonProps) {
         /* Responsive mobile */
         @media (max-width: 768px) {
           .blason-container {
-            top: 20px !important;
+            top: 80px !important;
             left: 20px !important;
             width: 40px !important;
             height: 50px !important;

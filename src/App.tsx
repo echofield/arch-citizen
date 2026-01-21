@@ -69,10 +69,16 @@ export default function App() {
             /* BackButton responsive */
             button[style*="position: fixed"][style*="top: 24px"] {
               left: 24px !important;
+              z-index: 1001 !important;
             }
             
             button[style*="position: fixed"][style*="top: 24px"] span:last-child {
               display: none !important;
+            }
+            
+            /* Blason responsive - ensure visibility */
+            .blason-container {
+              z-index: 1001 !important;
             }
           }
           

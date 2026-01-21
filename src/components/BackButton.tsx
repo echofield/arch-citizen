@@ -33,7 +33,7 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
           background: 'transparent',
           border: 'none',
           cursor: 'pointer',
-          zIndex: 1000,
+          zIndex: 1001,
           transition: 'all 400ms ease',
           padding: '8px 12px',
         }}
