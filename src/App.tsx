@@ -20,14 +20,14 @@
 import { useState } from 'react';
 import Home from './pages/Home';
 import Carte from './pages/Carte';
-import Quetes from './pages/Quetes';
+import Chemin from './pages/Chemin';
 import Passeport from './pages/Passeport';
 import Edile from './pages/Edile';
 import Cercle from './pages/Cercle';
 import { Blason } from './components/Blason';
 import { BackButton } from './components/BackButton';
 
-type Page = 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle';
+type Page = 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -236,7 +236,7 @@ export default function App() {
               </button>
 
               <button
-                onClick={() => navigateTo('quetes')}
+                onClick={() => navigateTo('chemin')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '10px',
@@ -246,14 +246,14 @@ export default function App() {
                   background: 'transparent',
                   border: 'none',
                   color: '#2B2B2B',
-                  opacity: currentPage === 'quetes' ? 1 : 0.4,
+                  opacity: currentPage === 'chemin' ? 1 : 0.4,
                   cursor: 'pointer',
                   transition: 'opacity 300ms ease'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'quetes' ? '1' : '0.4'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'chemin' ? '1' : '0.4'}
               >
-                Quêtes
+                Chemin
               </button>
 
               <button
@@ -305,7 +305,7 @@ export default function App() {
         <div key={currentPage} className="page-wrapper">
           {currentPage === 'home' && <Home onNavigate={navigateTo} />}
           {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
-          {currentPage === 'quetes' && <Quetes onNavigate={navigateTo} />}
+          {currentPage === 'chemin' && <Chemin onNavigate={navigateTo} />}
           {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
           {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
           {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}

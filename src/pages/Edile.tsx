@@ -6,7 +6,7 @@
 import { BackButton } from '../components/BackButton';
 
 interface EdileProps {
-  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
 }
 
 export default function Edile({ onNavigate }: EdileProps) {

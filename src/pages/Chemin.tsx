@@ -1,17 +1,18 @@
 /**
- * PAGE QUÊTES — ARCHÉ
- * Le mystère est la mécanique
+ * PAGE CHEMIN — ARCHÉ
+ * Le Chemin
  * 
- * Pas de catalogue, pas de liste
+ * La ville se traverse autant qu'elle se regarde
  */
 
 import { BackButton } from '../components/BackButton';
+import { CheminSVG } from '../components/CheminSVG';
 
-interface QuetesProps {
-  onNavigate?: (page: 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+interface CheminProps {
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
 }
 
-export default function Quetes({ onNavigate }: QuetesProps) {
+export default function Chemin({ onNavigate }: CheminProps) {
   return (
     <>
       {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
@@ -31,90 +32,65 @@ export default function Quetes({ onNavigate }: QuetesProps) {
             fontWeight: 500,
             letterSpacing: '0.02em',
             color: '#0E3F2F',
-            marginBottom: '80px',
+            marginBottom: '12px',
             lineHeight: 1.2
           }}
         >
-          Les quêtes
+          Le Chemin
         </h1>
+
+        {/* Subtitle */}
+        <p 
+          style={{
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '18px',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            color: '#2B2B2B',
+            opacity: 0.7,
+            marginBottom: '80px',
+            lineHeight: 1.8
+          }}
+        >
+          La ville se traverse autant qu'elle se regarde.
+        </p>
       </section>
 
-      {/* Texte principal */}
+      {/* SVG Chemin */}
       <section
         style={{
-          maxWidth: '640px',
+          maxWidth: '1080px',
           margin: '0 auto 120px',
           padding: '0 40px'
         }}
       >
-        <p 
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '21px',
-            fontWeight: 400,
-            lineHeight: 1.8,
-            letterSpacing: '0.01em',
-            marginBottom: '32px',
-            opacity: 0.9
-          }}
-        >
-          Les quêtes sont une invitation à regarder, se rappeler, construire.
-        </p>
+        <CheminSVG />
+      </section>
 
-        <p 
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '19px',
-            fontWeight: 300,
-            lineHeight: 1.8,
-            letterSpacing: '0.01em',
-            marginBottom: '32px',
-            opacity: 0.85
-          }}
-        >
-          Levons les yeux. La ville est pleine de ce qu'on a cessé de voir. Les quêtes se construisent ici, dans cette page, avec ceux qui marchent. Nous gagnons à mieux voir, à créer, à transmettre.
-        </p>
-
-        <p 
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '19px',
-            fontWeight: 300,
-            lineHeight: 1.8,
-            letterSpacing: '0.01em',
-            marginBottom: '80px',
-            opacity: 0.8
-          }}
-        >
-          Certaines quêtes sont historiques. D'autres sont inventées. D'autres attendent encore d'être écrites.
-        </p>
-
-        {/* Annonce calme */}
-        <p 
+      {/* Texte final */}
+      <section
+        style={{
+          maxWidth: '640px',
+          margin: '0 auto 160px',
+          padding: '0 40px',
+          textAlign: 'center'
+        }}
+      >
+        <p
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '17px',
             fontWeight: 300,
             fontStyle: 'italic',
-            lineHeight: 1.8,
-            textAlign: 'center',
+            lineHeight: 1.9,
             color: '#2B2B2B',
-            opacity: 0.5
+            opacity: 0.6
           }}
         >
-          Les premières quêtes apparaîtront bientôt.
+          Le chemin n'indique pas où arriver.<br />
+          Il indique comment marcher.
         </p>
       </section>
-
-      {/* Séparateur */}
-      <div 
-        style={{
-          maxWidth: '80px',
-          height: '0.5px',
-          background: 'rgba(0, 0, 0, 0.15)',
-          margin: '0 auto 100px'
-        }}
-      />
 
       {/* FOOTER — simplifié */}
       <footer 

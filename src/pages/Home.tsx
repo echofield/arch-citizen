@@ -9,7 +9,7 @@ import { ImageWithFilter } from '../components/ImageWithFilter';
 import { useState, useCallback } from 'react';
 
 interface HomeProps {
-  onNavigate: (page: 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate: (page: 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -99,7 +99,7 @@ export default function Home({ onNavigate }: HomeProps) {
             opacity: 0.85
           }}
         >
-          Sous les pavés, sous les façades, sous le bruit — une autre ville. Celle qui se murmure. Celle qui se marche. Celle qui s'invente.
+          Sous les pavés, sous les façades, sous le bruit, une autre ville. Celle qui se murmure. Celle qui se marche. Celle qui s'invente.
         </p>
 
         <p 
@@ -116,10 +116,8 @@ export default function Home({ onNavigate }: HomeProps) {
         </p>
 
         {/* CTA principal */}
-        <a
-          href="https://buy.stripe.com/3cI6oIcPD7sC0yl2dJ5J603"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => onNavigate('passeport')}
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
@@ -130,7 +128,6 @@ export default function Home({ onNavigate }: HomeProps) {
             padding: '18px 48px',
             background: '#0E3F2F',
             color: '#FAF9F6',
-            textDecoration: 'none',
             border: 'none',
             cursor: 'pointer',
             transition: 'background 400ms ease'
@@ -139,7 +136,7 @@ export default function Home({ onNavigate }: HomeProps) {
           onMouseLeave={(e) => e.currentTarget.style.background = '#0E3F2F'}
         >
           Devenir citoyen
-        </a>
+        </button>
       </section>
 
       {/* IMAGE STÈLE — après hero */}
@@ -243,7 +240,7 @@ export default function Home({ onNavigate }: HomeProps) {
             opacity: 0.8
           }}
         >
-          Hugo l'a écrite. Balzac l'a peuplée. Les surréalistes l'ont rêvée éveillés. Chaque génération réinvente la ville — et la ville survit parce qu'elle devient mythe.
+          Hugo l'a écrite. Balzac l'a peuplée. Les surréalistes l'ont rêvée éveillés. Chaque génération réinvente la ville, et la ville survit parce qu'elle devient mythe.
         </p>
 
         <p 
@@ -398,13 +395,13 @@ export default function Home({ onNavigate }: HomeProps) {
             opacity: 0.8
           }}
         >
-          Certaines quêtes sont historiques. D'autres sont inventées. D'autres encore n'existent pas encore — elles attendent que quelqu'un les imagine.
+          Certaines quêtes sont historiques. D'autres sont inventées. D'autres encore n'existent pas encore, elles attendent que quelqu'un les imagine.
         </p>
 
         {/* CTA Quêtes */}
         <div style={{ textAlign: 'center' }}>
           <button
-            onClick={() => onNavigate('quetes')}
+            onClick={() => onNavigate('chemin')}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '10px',
@@ -428,7 +425,7 @@ export default function Home({ onNavigate }: HomeProps) {
               e.currentTarget.style.borderColor = 'rgba(14, 63, 47, 0.25)';
             }}
           >
-            Découvrir les quêtes
+            Suivre le chemin
           </button>
         </div>
       </section>
