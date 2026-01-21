@@ -64,6 +64,15 @@ export default function App() {
             nav > div > div {
               gap: 24px !important;
             }
+            
+            /* BackButton responsive */
+            button[style*="position: fixed"][style*="top: 24px"] {
+              left: 24px !important;
+            }
+            
+            button[style*="position: fixed"][style*="top: 24px"] span:last-child {
+              display: none !important;
+            }
           }
         `}
       </style>
