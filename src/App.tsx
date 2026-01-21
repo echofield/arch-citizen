@@ -24,6 +24,8 @@ import Quetes from './pages/Quetes';
 import Passeport from './pages/Passeport';
 import Edile from './pages/Edile';
 import Cercle from './pages/Cercle';
+import { Blason } from './components/Blason';
+import { BackButton } from './components/BackButton';
 
 type Page = 'home' | 'carte' | 'quetes' | 'passeport' | 'edile' | 'cercle';
 
@@ -111,6 +113,16 @@ export default function App() {
           color: '#2B2B2B'
         }}
       >
+        {/* BLASON — toujours visible au-dessus du nav */}
+        {currentPage === 'home' && (
+          <Blason onClick={() => navigateTo('cercle')} />
+        )}
+
+        {/* BACK BUTTON — visible sur toutes les pages sauf home et cercle */}
+        {currentPage !== 'home' && currentPage !== 'cercle' && (
+          <BackButton onBack={() => navigateTo('home')} />
+        )}
+
         {/* MENU TOP — discret, horizontal */}
         <nav 
           style={{
