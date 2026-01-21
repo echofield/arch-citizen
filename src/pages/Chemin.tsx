@@ -6,7 +6,6 @@
  */
 
 import { BackButton } from '../components/BackButton';
-import { CheminSVG } from '../components/CheminSVG';
 
 interface CheminProps {
   onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
@@ -41,27 +40,24 @@ export default function Chemin({ onNavigate }: CheminProps) {
         </h1>
       </section>
 
-      {/* SVG — Structure continue qui évolue */}
+      {/* Words at the level of the lines */}
       <section
         style={{
           maxWidth: '900px',
           margin: '0 auto 120px',
-          padding: '0 40px',
+          padding: '120px 40px',
           position: 'relative'
         }}
       >
-        <div style={{ position: 'relative', width: '100%', marginBottom: '70px' }}>
-          <CheminSVG />
-        </div>
-
-        {/* Labels sous la structure */}
+        {/* Labels positioned at line level */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '15px',
             maxWidth: '900px',
-            margin: '0 auto'
+            margin: '0 auto',
+            alignItems: 'center'
           }}
         >
           {/* Moment 1: Observer */}
