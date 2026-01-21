@@ -178,7 +178,7 @@ export default function Home({ onNavigate }: HomeProps) {
               width: '100%',
               height: '100%'
             }}
-            imageOpacity={0.15}
+            imageOpacity={0.30}
             overlayOpacity={0}
             saturation={0}
           />
@@ -274,7 +274,7 @@ export default function Home({ onNavigate }: HomeProps) {
             alt=""
             height="320px"
             priority={true}
-            imageOpacity={0.5}
+            imageOpacity={0.65}
             overlayOpacity={0.04}
             saturation={-8}
           />
