@@ -15,9 +15,10 @@ export function Blason({ onClick }: BlasonProps) {
         position: 'fixed',
         top: '16px',
         left: '32px',
-        zIndex: 1002,
+        zIndex: 10000,
         width: '50px',
-        height: '62px'
+        height: '62px',
+        isolation: 'isolate'
       }}
     >
       {/* Container avec hover */}

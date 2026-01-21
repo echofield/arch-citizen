@@ -33,9 +33,10 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
           background: 'transparent',
           border: 'none',
           cursor: 'pointer',
-          zIndex: 1001,
+          zIndex: 10000,
           transition: 'all 400ms ease',
           padding: '8px 12px',
+          isolation: 'isolate'
         }}
       >
         {/* SVG FlÃ¨che manuscrite gravÃ©e */}
