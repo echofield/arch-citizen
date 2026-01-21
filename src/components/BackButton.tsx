@@ -1,20 +1,20 @@
 /**
- * BACK BUTTON â€” ARCHÃ‰
- * Bouton retour discret avec flÃ¨che manuscrite gravÃ©e
- * Texte "Retour Ã  la citÃ©" au hover
+ * BACK BUTTON — ARCHÉ
+ * Bouton retour discret avec flèche manuscrite gravée
+ * Texte "Retour à la cité" au hover
  */
 
 import { useState } from 'react';
 
 interface BackButtonProps {
   onBack: () => void;
-  onClick?: () => void; // Fallback pour compatibilitÃ©
+  onClick?: () => void; // Fallback pour compatibilité
   label?: string;
 }
 
-export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }: BackButtonProps) {
+export function BackButton({ onBack, onClick, label = 'Retour à la cité' }: BackButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const handleClick = onBack || onClick;
 
   return (
@@ -39,11 +39,11 @@ export function BackButton({ onBack, onClick, label = 'Retour Ã  la citÃ©' }
           isolation: 'isolate'
         }}
       >
-        {/* SVG FlÃ¨che manuscrite gravÃ©e */}
-        <svg 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
+        {/* SVG Flèche manuscrite gravée */}
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           style={{
             opacity: isHovered ? 1 : 0.6,
             transition: 'opacity 300ms ease'

@@ -118,8 +118,8 @@ export default function App() {
           <Blason onClick={() => navigateTo('cercle')} />
         )}
 
-        {/* BACK BUTTON — visible sur toutes les pages sauf home et cercle */}
-        {currentPage !== 'home' && currentPage !== 'cercle' && (
+        {/* BACK BUTTON — visible sur toutes les pages sauf home */}
+        {currentPage !== 'home' && (
           <BackButton onBack={() => navigateTo('home')} />
         )}
 
