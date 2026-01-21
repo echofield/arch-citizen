@@ -114,28 +114,44 @@ export default function Passeport({ onNavigate }: PasseportProps) {
         </p>
       </section>
 
-      {/* Prix */}
+      {/* Seuil */}
       <section
         style={{
           maxWidth: '640px',
-          margin: '0 auto 80px',
+          margin: '0 auto 100px',
           padding: '0 40px',
           textAlign: 'center'
         }}
       >
-        <p 
+        <p
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '56px',
+            fontSize: '15px',
             fontWeight: 400,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
             color: '#0E3F2F',
-            marginBottom: '80px'
+            marginBottom: '12px',
+            opacity: 0.9
           }}
         >
-          100 €
+          Édition fondatrice
         </p>
 
-        {/* CTA Stripe */}
+        <p
+          style={{
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '15px',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            letterSpacing: '0.04em',
+            opacity: 0.6,
+            marginBottom: '60px'
+          }}
+        >
+          Participation à la première année de la cité
+        </p>
+
         <a
           href="https://buy.stripe.com/3cI6oIcPD7sC0yl2dJ5J603"
           target="_blank"
@@ -143,7 +159,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
-            fontSize: '11px',
+            fontSize: '10px',
             fontWeight: 500,
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
@@ -151,12 +167,12 @@ export default function Passeport({ onNavigate }: PasseportProps) {
             background: '#0E3F2F',
             color: '#FAF9F6',
             textDecoration: 'none',
-            transition: 'background 400ms ease'
+            transition: 'opacity 400ms ease'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(14, 63, 47, 0.85)'}
-          onMouseLeave={(e) => e.currentTarget.style.background = '#0E3F2F'}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
         >
-          Obtenir le Passeport — 100 €
+          Obtenir le Passeport Fondateur — 100 €
         </a>
       </section>
 
