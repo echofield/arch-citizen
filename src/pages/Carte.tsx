@@ -136,6 +136,7 @@ export default function Carte({ onNavigate }: CarteProps) {
         }}
       >
         <h1 
+          className="carte-title-fade"
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '48px',
@@ -151,6 +152,7 @@ export default function Carte({ onNavigate }: CarteProps) {
 
         {/* Subtitle — une carte qui ne se dévoile qu'en marchant */}
         <p 
+          className="carte-subtitle-fade"
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '18px',
@@ -191,6 +193,7 @@ export default function Carte({ onNavigate }: CarteProps) {
 
       {/* VISUEL DE CARTE — géométrie de Paris + lieux symboliques */}
       <section
+        className="carte-section-fade"
         style={{
           maxWidth: selectedLieu ? '1260px' : '1080px',
           margin: '-100px auto 100px',
@@ -469,7 +472,7 @@ export default function Carte({ onNavigate }: CarteProps) {
         </p>
       </section>
 
-      {/* Animation pour le panneau latéral */}
+      {/* Animations pour le panneau latéral et l'entrée de page */}
       <style>
         {`
           @keyframes slideIn {
@@ -480,6 +483,48 @@ export default function Carte({ onNavigate }: CarteProps) {
             to {
               opacity: 1;
               transform: translateX(0);
+            }
+          }
+          
+          /* Animation d'entrée fluide — titre */
+          .carte-title-fade {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+          }
+          
+          /* Animation d'entrée fluide — sous-titre */
+          .carte-subtitle-fade {
+            animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+            opacity: 0;
+          }
+          
+          /* Animation d'entrée fluide — carte */
+          .carte-section-fade {
+            animation: fadeInMap 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+            opacity: 0;
+          }
+          
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(12px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          @keyframes fadeInMap {
+            from {
+              opacity: 0;
+              transform: translateY(20px) scale(0.98);
+              filter: blur(4px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+              filter: blur(0);
             }
           }
         `}
