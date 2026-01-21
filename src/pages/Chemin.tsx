@@ -40,150 +40,95 @@ export default function Chemin({ onNavigate }: CheminProps) {
         </h1>
       </section>
 
-      {/* Words at the level of the lines */}
+      {/* Minimal textual composition — spatial meaning */}
       <section
         style={{
-          maxWidth: '900px',
+          maxWidth: '640px',
           margin: '0 auto 120px',
-          padding: '60px 40px',
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '200px'
+          padding: '100px 40px',
+          position: 'relative'
         }}
       >
-        {/* Labels positioned at line level */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '15px',
-            maxWidth: '900px',
-            width: '100%',
-            margin: '0 auto',
-            alignItems: 'center'
+            position: 'relative',
+            width: '100%'
           }}
         >
-          {/* Moment 1: Observer */}
-          <div style={{ textAlign: 'center' }}>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '16px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                color: '#2D5A4A',
-                marginBottom: '8px',
-                opacity: 0.7
-              }}
-            >
-              Observer
-            </p>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '15px',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                lineHeight: 1.6,
-                color: '#2B2B2B',
-                opacity: 0.5
-              }}
-            >
-              La ville se laisse d'abord lire.
-            </p>
-          </div>
+          {/* Upper sentence — lighter, more elevated */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '18px',
+              fontWeight: 300,
+              letterSpacing: '0.05em',
+              color: '#2D5A4A',
+              lineHeight: 1.6,
+              margin: 0,
+              paddingLeft: '0',
+              opacity: 0.65,
+              transform: 'translateY(-12px)'
+            }}
+          >
+            Tout commence par un regard.
+          </p>
 
-          {/* Moment 2: Traverser */}
-          <div style={{ textAlign: 'center' }}>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '17px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                color: '#2D5A4A',
-                marginBottom: '8px',
-                opacity: 0.8
-              }}
-            >
-              Traverser
-            </p>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '16px',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                lineHeight: 1.6,
-                color: '#2B2B2B',
-                opacity: 0.55
-              }}
-            >
-              Le mouvement révèle ce qui était caché.
-            </p>
-          </div>
+          {/* Upper sentence — slightly below main axis */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '18px',
+              fontWeight: 300,
+              letterSpacing: '0.05em',
+              color: '#2D5A4A',
+              lineHeight: 1.6,
+              margin: 0,
+              marginTop: '28px',
+              paddingLeft: '16px',
+              opacity: 0.68,
+              transform: 'translateY(-4px)'
+            }}
+          >
+            Avant de marcher, il faut apprendre à voir.
+          </p>
 
-          {/* Moment 3: Comprendre */}
-          <div style={{ textAlign: 'center' }}>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '18px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                color: '#2D5A4A',
-                marginBottom: '8px',
-                opacity: 0.9
-              }}
-            >
-              Comprendre
-            </p>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '17px',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                lineHeight: 1.6,
-                color: '#2B2B2B',
-                opacity: 0.6
-              }}
-            >
-              Les fragments deviennent forme.
-            </p>
-          </div>
+          {/* Lower sentence — slightly above main axis */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '18px',
+              fontWeight: 300,
+              letterSpacing: '0.05em',
+              color: '#2D5A4A',
+              lineHeight: 1.6,
+              margin: 0,
+              marginTop: '28px',
+              paddingLeft: '32px',
+              opacity: 0.72,
+              transform: 'translateY(4px)'
+            }}
+          >
+            Ce qui est vu appelle un pas.
+          </p>
 
-          {/* Moment 4: Édifier */}
-          <div style={{ textAlign: 'center' }}>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '18px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                color: '#2D5A4A',
-                marginBottom: '8px',
-                opacity: 0.9
-              }}
-            >
-              Édifier
-            </p>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '17px',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                lineHeight: 1.6,
-                color: '#2B2B2B',
-                opacity: 0.6
-              }}
-            >
-              La cité se construit avec ceux qui marchent.
-            </p>
-          </div>
+          {/* Lower sentence — more grounded, slightly descended */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '18px',
+              fontWeight: 300,
+              letterSpacing: '0.05em',
+              color: '#2D5A4A',
+              lineHeight: 1.6,
+              margin: 0,
+              marginTop: '28px',
+              paddingLeft: '48px',
+              opacity: 0.75,
+              transform: 'translateY(12px)'
+            }}
+          >
+            Ce qui se révèle demande à être traversé.
+          </p>
         </div>
       </section>
 
