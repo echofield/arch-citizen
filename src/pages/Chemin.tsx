@@ -67,48 +67,10 @@ export default function Chemin({ onNavigate }: CheminProps) {
               margin: 0,
               paddingLeft: '0',
               opacity: 0.65,
-              transform: 'translateY(-12px)'
+              transform: 'translateY(-8px)'
             }}
           >
             Tout commence par un regard.
-          </p>
-
-          {/* Upper sentence — slightly below main axis */}
-          <p
-            style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
-              fontSize: '18px',
-              fontWeight: 300,
-              letterSpacing: '0.05em',
-              color: '#2D5A4A',
-              lineHeight: 1.6,
-              margin: 0,
-              marginTop: '28px',
-              paddingLeft: '16px',
-              opacity: 0.68,
-              transform: 'translateY(-4px)'
-            }}
-          >
-            Avant de marcher, il faut apprendre à voir.
-          </p>
-
-          {/* Lower sentence — slightly above main axis */}
-          <p
-            style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
-              fontSize: '18px',
-              fontWeight: 300,
-              letterSpacing: '0.05em',
-              color: '#2D5A4A',
-              lineHeight: 1.6,
-              margin: 0,
-              marginTop: '28px',
-              paddingLeft: '32px',
-              opacity: 0.72,
-              transform: 'translateY(4px)'
-            }}
-          >
-            Ce qui est vu appelle un pas.
           </p>
 
           {/* Lower sentence — more grounded, slightly descended */}
@@ -121,13 +83,13 @@ export default function Chemin({ onNavigate }: CheminProps) {
               color: '#2D5A4A',
               lineHeight: 1.6,
               margin: 0,
-              marginTop: '28px',
-              paddingLeft: '48px',
+              marginTop: '24px',
+              paddingLeft: '24px',
               opacity: 0.75,
-              transform: 'translateY(12px)'
+              transform: 'translateY(8px)'
             }}
           >
-            Ce qui se révèle demande à être traversé.
+            Ce qui est vu appelle un pas.
           </p>
         </div>
       </section>
