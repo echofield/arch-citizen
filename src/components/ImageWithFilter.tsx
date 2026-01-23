@@ -49,7 +49,7 @@ export function ImageWithFilter({
   style = {},
   priority = false,
   overlayOpacity = 0.04,
-  imageOpacity = 0.50,
+  imageOpacity = 1.0,
   saturation = -8,
 }: ImageWithFilterProps) {
   const [loaded, setLoaded] = useState(false);

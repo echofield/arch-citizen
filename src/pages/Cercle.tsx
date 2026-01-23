@@ -304,7 +304,7 @@ export default function Cercle({ onNavigate }: CercleProps) {
                     alt=""
                     height="200px"
                     priority={false}
-                    imageOpacity={0.50}
+                    imageOpacity={1.0}
                     overlayOpacity={0.04}
                     saturation={-10}
                   />
