@@ -4,6 +4,7 @@
  */
 
 import { BackButton } from '../components/BackButton';
+import { ImageWithFilter } from '../components/ImageWithFilter';
 
 interface CleProps {
   onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
@@ -30,18 +31,22 @@ export default function Cle({ onNavigate }: CleProps) {
           alignItems: 'start'
         }}
       >
-        {/* Left column — image placeholder */}
+        {/* Left column — image */}
         <div
           style={{
-            aspectRatio: '3 / 4',
-            border: '0.5px solid rgba(0, 0, 0, 0.08)',
-            background: 'rgba(0, 0, 0, 0.015)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            aspectRatio: '1 / 1',
+            border: '0.5px solid rgba(0, 0, 0, 0.08)'
           }}
         >
-          {/* Empty state — faint frame only */}
+          <ImageWithFilter
+            src="/images/cle.png"
+            alt=""
+            height="100%"
+            priority={true}
+            imageOpacity={0.75}
+            overlayOpacity={0.04}
+            saturation={-8}
+          />
         </div>
 
         {/* Right column — text + CTA */}
