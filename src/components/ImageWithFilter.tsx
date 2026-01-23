@@ -138,7 +138,7 @@ export function ImageWithFilter({
     transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
     opacity: loaded ? imageOpacity : 0,
     filter: loaded
-      ? `grayscale(${Math.abs(saturation) * 10}%) saturate(${100 + saturation}%) sepia(4%) contrast(1.03)`
+      ? `grayscale(${Math.abs(saturation) * 10}%) saturate(${100 + saturation}%) contrast(1.03)`
       : 'blur(20px) grayscale(100%)',
     transform: loaded ? 'scale(1)' : 'scale(1.05)',
   };
