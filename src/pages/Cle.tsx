@@ -149,6 +149,20 @@ export default function Cle({ onNavigate }: CleProps) {
             >
               Elle relie une carte physique à une trace vivante, dans la cité.
             </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '17px',
+                fontWeight: 300,
+                fontStyle: 'italic',
+                lineHeight: 1.8,
+                marginTop: '40px',
+                opacity: 0.7
+              }}
+            >
+              ARCHÉ évolue. La Clé donne accès à une cité vivante, appelée à se transformer au fil du temps.
+            </p>
           </div>
 
           {/* CTA block — the threshold */}
