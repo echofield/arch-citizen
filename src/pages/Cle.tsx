@@ -11,8 +11,6 @@ interface CleProps {
 }
 
 export default function Cle({ onNavigate }: CleProps) {
-  const stripeLink = import.meta.env.VITE_STRIPE_CLE_LINK;
-  const isLinkAvailable = Boolean(stripeLink);
 
   return (
     <>
@@ -139,48 +137,28 @@ export default function Cle({ onNavigate }: CleProps) {
 
           {/* CTA block */}
           <div style={{ textAlign: 'center' }}>
-            {isLinkAvailable ? (
-              <a
-                href={stripeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-block',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '10px',
-                  fontWeight: 500,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  padding: '18px 48px',
-                  background: '#0E3F2F',
-                  color: '#FAF9F6',
-                  textDecoration: 'none',
-                  transition: 'opacity 400ms ease'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-              >
-                Obtenir la Clé — 50 €
-              </a>
-            ) : (
-              <span
-                style={{
-                  display: 'inline-block',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '10px',
-                  fontWeight: 500,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  padding: '18px 48px',
-                  background: '#0E3F2F',
-                  color: '#FAF9F6',
-                  opacity: 0.5,
-                  cursor: 'not-allowed'
-                }}
-              >
-                Obtenir la Clé
-              </span>
-            )}
+            <a
+              href="https://buy.stripe.com/00wdRa4j7aEOftf4lR5J604"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '10px',
+                fontWeight: 500,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                padding: '18px 48px',
+                background: '#0E3F2F',
+                color: '#FAF9F6',
+                textDecoration: 'none',
+                transition: 'opacity 400ms ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+              onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+            >
+              Obtenir la Clé — 45 €
+            </a>
 
             {/* Whisper text */}
             <p
@@ -193,9 +171,7 @@ export default function Cle({ onNavigate }: CleProps) {
                 marginTop: '20px'
               }}
             >
-              {isLinkAvailable
-                ? 'Livraison de la carte + accès numérique.'
-                : 'Lien temporairement indisponible.'}
+              Accès numérique immédiat.
             </p>
           </div>
         </div>
