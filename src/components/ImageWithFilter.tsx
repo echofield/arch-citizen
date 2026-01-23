@@ -49,7 +49,7 @@ export function ImageWithFilter({
   style = {},
   priority = false,
   overlayOpacity = 0.04,
-  imageOpacity = 0.95,
+  imageOpacity = 0.80,
   saturation = -8,
 }: ImageWithFilterProps) {
   const [loaded, setLoaded] = useState(false);
@@ -109,7 +109,7 @@ export function ImageWithFilter({
     width: '100%',
     position: 'relative',
     overflow: 'hidden',
-    backgroundColor: 'rgba(250, 249, 246, 0.5)',
+    backgroundColor: 'rgba(250, 245, 235, 0.5)',
     ...style,
     ...(aspectRatio
       ? { aspectRatio }
@@ -118,17 +118,19 @@ export function ImageWithFilter({
       : { aspectRatio: '16/9' }),
   };
 
+  // Warm parchment overlay — ivory, not sterile white
   const overlayStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    background: `linear-gradient(135deg, rgba(250, 249, 246, ${overlayOpacity}) 0%, rgba(250, 249, 246, ${overlayOpacity * 0.6}) 100%)`,
+    background: `linear-gradient(135deg, rgba(250, 245, 235, ${overlayOpacity}) 0%, rgba(245, 240, 230, ${overlayOpacity * 0.6}) 100%)`,
     zIndex: 1,
     pointerEvents: 'none',
   };
 
+  // Living trace — warmth, soft contrast, inhabited presence
   const imageStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
@@ -136,7 +138,7 @@ export function ImageWithFilter({
     transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
     opacity: loaded ? imageOpacity : 0,
     filter: loaded
-      ? `grayscale(${Math.abs(saturation) * 10}%) saturate(${100 + saturation}%)`
+      ? `grayscale(${Math.abs(saturation) * 10}%) saturate(${100 + saturation}%) sepia(4%) contrast(1.03)`
       : 'blur(20px) grayscale(100%)',
     transform: loaded ? 'scale(1)' : 'scale(1.05)',
   };
@@ -172,13 +174,13 @@ export function ImageWithFilter({
 
   return (
     <div className={className} style={containerStyle}>
-      {/* Placeholder blur progressif pendant chargement */}
+      {/* Placeholder — warm parchment pulse */}
       {!loaded && !error && (
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, #FAF9F6 0%, #F0EDE8 100%)',
+            background: 'linear-gradient(135deg, #FAF5EB 0%, #F0E8DC 100%)',
             animation: 'pulse 2s ease-in-out infinite',
             zIndex: 0,
           }}
