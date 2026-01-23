@@ -17,6 +17,22 @@ export default function Cle({ onNavigate }: CleProps) {
       {/* Bouton retour */}
       {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
 
+      {/* Bienvenue */}
+      <p
+        style={{
+          fontFamily: 'Cormorant Garamond, Georgia, serif',
+          fontSize: '19px',
+          fontWeight: 300,
+          fontStyle: 'italic',
+          textAlign: 'center',
+          opacity: 0.7,
+          padding: '120px 40px 0',
+          margin: 0
+        }}
+      >
+        Bienvenue.
+      </p>
+
       {/* Main content — two column on desktop */}
       <section
         style={{
@@ -132,6 +148,78 @@ export default function Cle({ onNavigate }: CleProps) {
               }}
             >
               Elle relie une carte physique à une trace vivante, dans la cité.
+            </p>
+          </div>
+
+          {/* Après l'entrée */}
+          <div style={{ marginBottom: '60px' }}>
+            <h2
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '24px',
+                fontWeight: 400,
+                letterSpacing: '0.08em',
+                color: '#0E3F2F',
+                marginBottom: '32px',
+                opacity: 0.9
+              }}
+            >
+              Après l'entrée
+            </h2>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '17px',
+                fontWeight: 300,
+                lineHeight: 1.9,
+                marginBottom: '24px',
+                opacity: 0.8
+              }}
+            >
+              Avec La Clé, vous entrez dans ARCHÉ comme flâneur.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '17px',
+                fontWeight: 300,
+                lineHeight: 1.9,
+                marginBottom: '24px',
+                opacity: 0.8
+              }}
+            >
+              Vous accédez aux cartes vivantes de la cité,<br />
+              aux quêtes urbaines,<br />
+              aux lectures secrètes de Paris.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '17px',
+                fontWeight: 300,
+                lineHeight: 1.9,
+                marginBottom: '24px',
+                opacity: 0.8
+              }}
+            >
+              Un carnet numérique personnel accompagne le parcours.<br />
+              Il recueille les passages, les lieux, les échos rencontrés.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '17px',
+                fontWeight: 300,
+                lineHeight: 1.9,
+                opacity: 0.8
+              }}
+            >
+              ARCHÉ se découvre en mouvement.<br />
+              Pas à pas.
             </p>
           </div>
 
