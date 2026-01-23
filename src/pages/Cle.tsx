@@ -1,0 +1,272 @@
+/**
+ * PAGE LA CLÉ — ARCHÉ
+ * Offer page for digital + physical card access
+ */
+
+import { BackButton } from '../components/BackButton';
+
+interface CleProps {
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
+}
+
+export default function Cle({ onNavigate }: CleProps) {
+  const stripeLink = import.meta.env.VITE_STRIPE_CLE_LINK;
+  const isLinkAvailable = Boolean(stripeLink);
+
+  return (
+    <>
+      {/* Bouton retour */}
+      {onNavigate && <BackButton onBack={() => onNavigate('home')} />}
+
+      {/* Main content — two column on desktop */}
+      <section
+        style={{
+          maxWidth: '1000px',
+          margin: '0 auto',
+          padding: '140px 40px 80px',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '80px',
+          alignItems: 'start'
+        }}
+      >
+        {/* Left column — image placeholder */}
+        <div
+          style={{
+            aspectRatio: '3 / 4',
+            border: '0.5px solid rgba(0, 0, 0, 0.08)',
+            background: 'rgba(0, 0, 0, 0.015)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          {/* Empty state — faint frame only */}
+        </div>
+
+        {/* Right column — text + CTA */}
+        <div>
+          {/* Title */}
+          <h1
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '42px',
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+              color: '#0E3F2F',
+              marginBottom: '48px',
+              lineHeight: 1.2
+            }}
+          >
+            La Clé
+          </h1>
+
+          {/* Invocation line */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '17px',
+              fontWeight: 400,
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              opacity: 0.7,
+              marginBottom: '60px',
+              textAlign: 'center'
+            }}
+          >
+            Ce qui permet d'entrer, sans expliquer ce qui attend.
+          </p>
+
+          {/* Body paragraphs */}
+          <div style={{ marginBottom: '60px' }}>
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '19px',
+                fontWeight: 300,
+                lineHeight: 1.8,
+                marginBottom: '28px',
+                opacity: 0.85
+              }}
+            >
+              La Clé est une entrée.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '19px',
+                fontWeight: 300,
+                lineHeight: 1.8,
+                marginBottom: '28px',
+                opacity: 0.85
+              }}
+            >
+              Elle existe pour ceux qui veulent marcher sans demander la permission.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '19px',
+                fontWeight: 300,
+                lineHeight: 1.8,
+                marginBottom: '28px',
+                opacity: 0.85
+              }}
+            >
+              Dans ARCHÉ, la Clé n'ouvre pas une porte.<br />
+              Elle reconnaît une présence.
+            </p>
+
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '19px',
+                fontWeight: 300,
+                lineHeight: 1.8,
+                opacity: 0.85
+              }}
+            >
+              Elle relie une carte physique à une trace vivante, dans la cité.
+            </p>
+          </div>
+
+          {/* CTA block */}
+          <div style={{ textAlign: 'center' }}>
+            {isLinkAvailable ? (
+              <a
+                href={stripeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '10px',
+                  fontWeight: 500,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  padding: '18px 48px',
+                  background: '#0E3F2F',
+                  color: '#FAF9F6',
+                  textDecoration: 'none',
+                  transition: 'opacity 400ms ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+              >
+                Obtenir la Clé — 50 €
+              </a>
+            ) : (
+              <span
+                style={{
+                  display: 'inline-block',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '10px',
+                  fontWeight: 500,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  padding: '18px 48px',
+                  background: '#0E3F2F',
+                  color: '#FAF9F6',
+                  opacity: 0.5,
+                  cursor: 'not-allowed'
+                }}
+              >
+                Obtenir la Clé
+              </span>
+            )}
+
+            {/* Whisper text */}
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '14px',
+                fontWeight: 300,
+                fontStyle: 'italic',
+                opacity: 0.65,
+                marginTop: '20px'
+              }}
+            >
+              {isLinkAvailable
+                ? 'Livraison de la carte + accès numérique.'
+                : 'Lien temporairement indisponible.'}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Séparateur */}
+      <div
+        style={{
+          maxWidth: '80px',
+          height: '0.5px',
+          background: 'rgba(0, 0, 0, 0.15)',
+          margin: '0 auto 100px'
+        }}
+      />
+
+      {/* FOOTER */}
+      <footer
+        style={{
+          maxWidth: '640px',
+          margin: '0 auto',
+          padding: '0 40px 120px',
+          textAlign: 'center'
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '42px',
+            fontWeight: 500,
+            letterSpacing: '0.25em',
+            color: '#0E3F2F',
+            marginBottom: '16px'
+          }}
+        >
+          ARCHÉ
+        </h2>
+
+        <p
+          style={{
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '14px',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            letterSpacing: '0.08em',
+            opacity: 0.4,
+            marginBottom: '60px'
+          }}
+        >
+          Paris · République
+        </p>
+
+        <p
+          style={{
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '15px',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            opacity: 0.35
+          }}
+        >
+          En construction permanente
+        </p>
+      </footer>
+
+      {/* Responsive styles */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            section[style*="grid-template-columns"] {
+              grid-template-columns: 1fr !important;
+              gap: 48px !important;
+              padding-top: 120px !important;
+            }
+          }
+        `}
+      </style>
+    </>
+  );
+}

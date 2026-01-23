@@ -7,7 +7,7 @@ import { ImageWithFilter } from '../components/ImageWithFilter';
 import { BackButton } from '../components/BackButton';
 
 interface PasseportProps {
-  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
 }
 
 export default function Passeport({ onNavigate }: PasseportProps) {

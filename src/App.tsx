@@ -22,12 +22,13 @@ import Home from './pages/Home';
 import Carte from './pages/Carte';
 import Chemin from './pages/Chemin';
 import Passeport from './pages/Passeport';
+import Cle from './pages/Cle';
 import Edile from './pages/Edile';
 import Cercle from './pages/Cercle';
 import { Blason } from './components/Blason';
 import { BackButton } from './components/BackButton';
 
-type Page = 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle';
+type Page = 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -278,6 +279,27 @@ export default function App() {
               </button>
 
               <button
+                onClick={() => navigateTo('cle')}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '10px',
+                  fontWeight: 400,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#2B2B2B',
+                  opacity: currentPage === 'cle' ? 1 : 0.4,
+                  cursor: 'pointer',
+                  transition: 'opacity 300ms ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'cle' ? '1' : '0.4'}
+              >
+                Clé
+              </button>
+
+              <button
                 onClick={() => navigateTo('edile')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -307,6 +329,7 @@ export default function App() {
           {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
           {currentPage === 'chemin' && <Chemin onNavigate={navigateTo} />}
           {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
+          {currentPage === 'cle' && <Cle onNavigate={navigateTo} />}
           {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
           {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}
         </div>

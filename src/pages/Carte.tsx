@@ -79,7 +79,7 @@ const lieux: Lieu[] = [
 ];
 
 interface CarteProps {
-  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
 }
 
 export default function Carte({ onNavigate }: CarteProps) {

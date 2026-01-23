@@ -8,7 +8,7 @@
 import { BackButton } from '../components/BackButton';
 
 interface CheminProps {
-  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
 }
 
 export default function Chemin({ onNavigate }: CheminProps) {
