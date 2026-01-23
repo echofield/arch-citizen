@@ -151,8 +151,48 @@ export default function Cle({ onNavigate }: CleProps) {
             </p>
           </div>
 
-          {/* Après l'entrée */}
-          <div style={{ marginBottom: '60px' }}>
+          {/* CTA block — the threshold */}
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <a
+              href="https://buy.stripe.com/00wdRa4j7aEOftf4lR5J604"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '10px',
+                fontWeight: 500,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                padding: '18px 48px',
+                background: '#0E3F2F',
+                color: '#FAF9F6',
+                textDecoration: 'none',
+                transition: 'opacity 400ms ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+              onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+            >
+              Obtenir la Clé — 45 €
+            </a>
+
+            {/* Whisper text */}
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '14px',
+                fontWeight: 300,
+                fontStyle: 'italic',
+                opacity: 0.6,
+                marginTop: '20px'
+              }}
+            >
+              Accès numérique immédiat.
+            </p>
+          </div>
+
+          {/* Après l'entrée — what unfolds after crossing */}
+          <div>
             <h2
               style={{
                 fontFamily: 'Cormorant Garamond, Georgia, serif',
@@ -220,46 +260,6 @@ export default function Cle({ onNavigate }: CleProps) {
             >
               ARCHÉ se découvre en mouvement.<br />
               Pas à pas.
-            </p>
-          </div>
-
-          {/* CTA block */}
-          <div style={{ textAlign: 'center' }}>
-            <a
-              href="https://buy.stripe.com/00wdRa4j7aEOftf4lR5J604"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '10px',
-                fontWeight: 500,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                padding: '18px 48px',
-                background: '#0E3F2F',
-                color: '#FAF9F6',
-                textDecoration: 'none',
-                transition: 'opacity 400ms ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-              onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-            >
-              Obtenir la Clé — 45 €
-            </a>
-
-            {/* Whisper text */}
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '14px',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                opacity: 0.65,
-                marginTop: '20px'
-              }}
-            >
-              Accès numérique immédiat.
             </p>
           </div>
         </div>
