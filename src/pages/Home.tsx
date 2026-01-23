@@ -9,7 +9,7 @@ import { ImageWithFilter } from '../components/ImageWithFilter';
 import { useState, useCallback } from 'react';
 
 interface HomeProps {
-  onNavigate: (page: 'carte' | 'chemin' | 'passeport' | 'edile' | 'cercle') => void;
+  onNavigate: (page: 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -117,7 +117,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
         {/* CTA principal */}
         <button
-          onClick={() => onNavigate('passeport')}
+          onClick={() => onNavigate('cle')}
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
