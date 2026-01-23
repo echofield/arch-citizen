@@ -59,7 +59,7 @@ export default function Passeport({ onNavigate }: PasseportProps) {
             alt=""
             height="420px"
             priority={true}
-            imageOpacity={1.0}
+            imageOpacity={0.50}
             overlayOpacity={0.04}
             saturation={-8}
           />
