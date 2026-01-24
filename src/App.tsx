@@ -86,17 +86,6 @@ export default function App() {
             }
           }
           
-          /* MiniCarte — only visible on wide screens */
-          .mini-carte-container {
-            display: none;
-          }
-
-          @media (min-width: 1100px) {
-            .mini-carte-container {
-              display: block;
-            }
-          }
-
           /* Transition fluide globale pour toutes les pages */
           .page-wrapper {
             animation: pageFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;

@@ -34,46 +34,8 @@ export default function Home({ onNavigate }: HomeProps) {
       {/* PORTAL TRANSITION */}
       <PortalTransition isActive={portalActive} onComplete={handleTransitionComplete} />
 
-      {/* HERO with MiniCarte in left margin */}
-
-
-      <div style={{ position: 'relative', maxWidth: '1200px', margin: '0 auto' }}>
-
-
-        {/* MiniCarte — left margin, trace cartographique */}
-
-
-        <div
-
-
-          className="mini-carte-container"
-
-
-          style={{
-
-
-            position: 'absolute',
-
-
-            left: '40px',
-
-
-            top: '380px'
-
-
-          }}
-
-
-        >
-
-
-          <MiniCarte onClick={() => onNavigate('carte')} />
-
-
-        </div>
-
-
-        <section
+      {/* HERO */}
+      <section
         style={{
           maxWidth: '680px',
           margin: '0 auto',
@@ -96,21 +58,25 @@ export default function Home({ onNavigate }: HomeProps) {
           ARCHÉ
         </h1>
 
-        {/* Lieu — voix basse */}
-        <p 
+        {/* Lieu — cartographic label */}
+        <p
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '15px',
+            fontSize: '17px',
             fontWeight: 300,
-            fontStyle: 'italic',
-            letterSpacing: '0.08em',
+            letterSpacing: '0.18em',
             color: '#2B2B2B',
-            opacity: 0.4,
-            marginBottom: '100px'
+            opacity: 0.5,
+            marginBottom: '50px'
           }}
         >
-          Paris · République
+          Paris
         </p>
+
+        {/* Ghost map fragment — palimpsest between name and call */}
+        <div style={{ marginBottom: '50px' }}>
+          <MiniCarte onClick={() => onNavigate('carte')} />
+        </div>
 
         {/* Titre principal */}
         <h2 
@@ -177,8 +143,6 @@ export default function Home({ onNavigate }: HomeProps) {
           Devenir citoyen
         </button>
       </section>
-
-      </div>
 
       {/* IMAGE STÈLE — après hero */}
       <section
@@ -514,7 +478,7 @@ export default function Home({ onNavigate }: HomeProps) {
             marginBottom: '60px'
           }}
         >
-          Paris · République
+          Paris
         </p>
 
         <p 
