@@ -1,10 +1,9 @@
 /**
  * MINI-CARTE — ARCHÉ
- * Contour de Paris + fragments d'arrondissements
+ * Contour de Paris + glimpse d'arrondissements
  *
  * Teaser, pas révélation.
- * Quelques zones esquissées, incomplètes.
- * Sans la Seine. Sans interactivité.
+ * Sans la Seine.
  */
 
 interface MiniCarteProps {
@@ -17,8 +16,8 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
       onClick={onClick}
       style={{
         width: '100%',
-        maxWidth: '300px',
-        opacity: 0.22,
+        maxWidth: '420px',
+        opacity: 0.18,
         cursor: 'default',
         margin: '0 auto'
       }}
@@ -34,11 +33,11 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
         }}
       >
         <g>
-          {/* Contour de Paris — the full boundary */}
+          {/* Contour de Paris */}
           <polygon
             fill="none"
             stroke="currentColor"
-            strokeWidth="3.5"
+            strokeWidth="3"
             strokeLinejoin="round"
             points="
               0,1054
@@ -131,51 +130,24 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
             "
           />
 
-          {/* Fragments d'arrondissements — glimpses, not exhaustive */}
+          {/* Glimpse d'arrondissements — quelques lignes internes */}
 
-          {/* Fragment 1 — partial zone north-center */}
+          {/* Fragment horizontal haut */}
           <polyline
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth="2"
+            opacity="0.6"
+            points="358,439 544,531 583,450 617,440 713,408 808,390 940,351"
+          />
+
+          {/* Fragment diagonal centre */}
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
             opacity="0.5"
-            points="940,351 808,390 717,406 644,431 583,450 544,531"
-          />
-
-          {/* Fragment 2 — partial zone center-east */}
-          <polyline
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            opacity="0.4"
-            points="1231,723 1222,750 1198,815 1188,839 1177,857"
-          />
-
-          {/* Fragment 3 — partial zone south */}
-          <polyline
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            opacity="0.45"
-            points="908,1091 841,1056 809,1032"
-          />
-
-          {/* Fragment 4 — partial zone west */}
-          <polyline
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            opacity="0.35"
-            points="1551,561 1469,451 1469,366"
-          />
-
-          {/* Fragment 5 — partial zone center */}
-          <polyline
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            opacity="0.4"
-            points="624,713 624,722 604,724 573,734"
+            points="150,1269 323,1000 481,819 624,722"
           />
         </g>
       </svg>

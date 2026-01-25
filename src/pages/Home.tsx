@@ -72,7 +72,30 @@ export default function Home({ onNavigate }: HomeProps) {
           Paris
         </p>
 
-                {/* Titre principal */}
+        {/* Mini-carte teaser — entre Paris et l'appel */}
+        <div style={{ margin: '50px auto 60px' }}>
+          <MiniCarte onClick={() => onNavigate('carte')} />
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '12px',
+              fontWeight: 300,
+              letterSpacing: '0.1em',
+              color: '#2B2B2B',
+              opacity: 0.35,
+              marginTop: '24px',
+              cursor: 'pointer',
+              transition: 'opacity 300ms ease'
+            }}
+            onClick={() => onNavigate('carte')}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.6'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '0.35'}
+          >
+            Voir la carte
+          </p>
+        </div>
+
+        {/* Titre principal */}
         <h2 
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
@@ -114,30 +137,7 @@ export default function Home({ onNavigate }: HomeProps) {
           ARCHÉ est une cité pour ceux qui veulent la lire.
         </p>
 
-        {/* Mini-carte teaser — invite, ne révèle pas */}
-        <div style={{ margin: '60px auto 70px' }}>
-          <MiniCarte onClick={() => onNavigate('carte')} />
-          <p
-            style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
-              fontSize: '12px',
-              fontWeight: 300,
-              letterSpacing: '0.1em',
-              color: '#2B2B2B',
-              opacity: 0.35,
-              marginTop: '20px',
-              cursor: 'pointer',
-              transition: 'opacity 300ms ease'
-            }}
-            onClick={() => onNavigate('carte')}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.6'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '0.35'}
-          >
-            Voir la carte
-          </p>
-        </div>
-
-        {/* CTA principal */}
+                {/* CTA principal */}
         <button
           onClick={() => onNavigate('cle')}
           style={{
