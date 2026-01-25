@@ -1,9 +1,10 @@
 /**
  * MINI-CARTE — ARCHÉ
- * Contour + Seine — territory marked
+ * Contour de Paris + fragments d'arrondissements
  *
- * The true shape of Paris. The river through it.
- * Recognizable without being cartographic.
+ * Teaser, pas révélation.
+ * Quelques zones esquissées, incomplètes.
+ * Sans la Seine. Sans interactivité.
  */
 
 interface MiniCarteProps {
@@ -15,11 +16,11 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
     <div
       onClick={onClick}
       style={{
-        width: '400px',
-        opacity: 0.2,
+        width: '100%',
+        maxWidth: '300px',
+        opacity: 0.22,
         cursor: 'default',
-        margin: '0 auto',
-        transform: 'translateX(-8px)'
+        margin: '0 auto'
       }}
     >
       <svg
@@ -33,11 +34,11 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
         }}
       >
         <g>
-          {/* Full outer contour of Paris — traced from boundary polygons */}
+          {/* Contour de Paris — the full boundary */}
           <polygon
             fill="none"
             stroke="currentColor"
-            strokeWidth="3"
+            strokeWidth="3.5"
             strokeLinejoin="round"
             points="
               0,1054
@@ -130,43 +131,51 @@ export function MiniCarte({ onClick }: MiniCarteProps) {
             "
           />
 
-          {/* La Seine — the river through Paris */}
+          {/* Fragments d'arrondissements — glimpses, not exhaustive */}
+
+          {/* Fragment 1 — partial zone north-center */}
           <polyline
             fill="none"
             stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="
-              1714,1425
-              1549,1228
-              1510,1171
-              1413,1062
-              1396,1043
-              1372,1014
-              1332,982
-              1289,960
-              1238,943
-              1216,933
-              1202,925
-              1182,912
-              1152,897
-              1131,882
-              1107,850
-              1065,816
-              1022,804
-              988,792
-              860,730
-              829,716
-              624,722
-              604,724
-              573,734
-              545,749
-              538,754
-              481,819
-              323,1000
-              150,1269
-            "
+            strokeWidth="1.5"
+            opacity="0.5"
+            points="940,351 808,390 717,406 644,431 583,450 544,531"
+          />
+
+          {/* Fragment 2 — partial zone center-east */}
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            opacity="0.4"
+            points="1231,723 1222,750 1198,815 1188,839 1177,857"
+          />
+
+          {/* Fragment 3 — partial zone south */}
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            opacity="0.45"
+            points="908,1091 841,1056 809,1032"
+          />
+
+          {/* Fragment 4 — partial zone west */}
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            opacity="0.35"
+            points="1551,561 1469,451 1469,366"
+          />
+
+          {/* Fragment 5 — partial zone center */}
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            opacity="0.4"
+            points="624,713 624,722 604,724 573,734"
           />
         </g>
       </svg>

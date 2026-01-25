@@ -5,7 +5,6 @@
 
 import { Blason } from '../components/Blason';
 import { PortalTransition } from '../components/PortalTransition';
-import { ImageWithFilter } from '../components/ImageWithFilter';
 import { MiniCarte } from '../components/MiniCarte';
 import { useState, useCallback } from 'react';
 
@@ -73,12 +72,7 @@ export default function Home({ onNavigate }: HomeProps) {
           Paris
         </p>
 
-        {/* Ghost map fragment — palimpsest between name and call */}
-        <div style={{ marginBottom: '50px' }}>
-          <MiniCarte onClick={() => onNavigate('carte')} />
-        </div>
-
-        {/* Titre principal */}
+                {/* Titre principal */}
         <h2 
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
@@ -120,6 +114,29 @@ export default function Home({ onNavigate }: HomeProps) {
           ARCHÉ est une cité pour ceux qui veulent la lire.
         </p>
 
+        {/* Mini-carte teaser — invite, ne révèle pas */}
+        <div style={{ margin: '60px auto 70px' }}>
+          <MiniCarte onClick={() => onNavigate('carte')} />
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: '12px',
+              fontWeight: 300,
+              letterSpacing: '0.1em',
+              color: '#2B2B2B',
+              opacity: 0.35,
+              marginTop: '20px',
+              cursor: 'pointer',
+              transition: 'opacity 300ms ease'
+            }}
+            onClick={() => onNavigate('carte')}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.6'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '0.35'}
+          >
+            Voir la carte
+          </p>
+        </div>
+
         {/* CTA principal */}
         <button
           onClick={() => onNavigate('cle')}
@@ -144,63 +161,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </button>
       </section>
 
-      {/* IMAGE STÈLE — après hero */}
-      <section
-        style={{
-          maxWidth: '520px',
-          margin: '0 auto 80px',
-          padding: '0 40px',
-          textAlign: 'center'
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            minHeight: '360px',
-            background: 'linear-gradient(135deg, rgba(14, 63, 47, 0.03) 0%, rgba(14, 63, 47, 0.06) 100%)',
-            border: '0.5px solid rgba(0, 0, 0, 0.08)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '20px',
-            position: 'relative',
-            padding: '60px 40px',
-            overflow: 'hidden'
-          }}
-        >
-          <ImageWithFilter
-            src="/images/blason.webp"
-            alt=""
-            aspectRatio="4/3"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%'
-            }}
-            imageOpacity={0.50}
-            overlayOpacity={0}
-            saturation={0}
-          />
-        </div>
-
-        <p
-          style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
-            fontSize: '15px',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            letterSpacing: '0.12em',
-            color: '#2B2B2B',
-            opacity: 0.35,
-            marginTop: '24px'
-          }}
-        >
-          Ordo per motum
-        </p>
-      </section>
+      
 
       {/* Séparateur */}
       <div 
@@ -269,20 +230,7 @@ export default function Home({ onNavigate }: HomeProps) {
           padding: '0 40px'
         }}
       >
-        {/* Image — passage parisien */}
-        <div style={{ marginBottom: '50px', border: '0.5px solid rgba(0, 0, 0, 0.08)' }}>
-          <ImageWithFilter
-            src="/images/passageparisien.webp"
-            alt=""
-            height="320px"
-            priority={true}
-            imageOpacity={0.50}
-            overlayOpacity={0.04}
-            saturation={-8}
-          />
-        </div>
-
-        <p 
+                <p 
           style={{
             fontFamily: 'Cormorant Garamond, Georgia, serif',
             fontSize: '21px',
