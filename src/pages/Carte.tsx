@@ -78,8 +78,10 @@ const lieux: Lieu[] = [
   }
 ];
 
+import type { Page } from '../types/citizen';
+
 interface CarteProps {
-  onNavigate?: (page: 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
+  onNavigate?: (page: Page) => void;
 }
 
 export default function Carte({ onNavigate }: CarteProps) {

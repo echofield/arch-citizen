@@ -1,34 +1,35 @@
 /**
- * ARCHÉ — v3.2 (Figma Update)
+ * ARCHÉ — v4.0 (Citizen Architecture)
  * Une façade civique contemporaine
- * 
+ *
  * Principes :
  * - Marche silencieuse, pas interface
  * - Respiration maximale
  * - Géométrie fine
  * - Mystère comme mécanique
- * 
+ *
  * Couleurs :
  * - Ivoire : #FAF9F6
  * - Vert ARCHÉ : #0E3F2F
  * - Gris texte : #2B2B2B
  * - Gris lignes : rgba(0,0,0,0.15)
- * 
+ *
  * Typographie : Cormorant Garamond
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Carte from './pages/Carte';
-import Chemin from './pages/Chemin';
-import Passeport from './pages/Passeport';
-import Cle from './pages/Cle';
-import Edile from './pages/Edile';
+import Journal from './pages/Journal';
+import Entrer from './pages/Entrer';
+import Assemblee from './pages/Assemblee';
+import Connexion from './pages/Connexion';
+import Passage from './pages/Passage';
+import Ouvrir from './pages/Ouvrir';
 import Cercle from './pages/Cercle';
 import { Blason } from './components/Blason';
 import { BackButton } from './components/BackButton';
-
-type Page = 'home' | 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle';
+import { type Page, ROUTE_REDIRECTS } from './types/citizen';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -38,10 +39,32 @@ export default function App() {
   };
 
   const navigateTo = (page: Page) => {
-    if (page === currentPage) return;
-    setCurrentPage(page);
+    // Handle redirects for legacy routes
+    const redirectTo = ROUTE_REDIRECTS[page];
+    const targetPage = redirectTo || page;
+
+    if (targetPage === currentPage) return;
+    setCurrentPage(targetPage);
     scrollToTop();
   };
+
+  // Check for any URL-based redirects on mount (for direct links)
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const pageFromHash = hash as Page;
+      const redirectTo = ROUTE_REDIRECTS[pageFromHash];
+      if (redirectTo) {
+        setCurrentPage(redirectTo);
+        window.location.hash = redirectTo;
+      } else if (['carte', 'journal', 'entrer', 'assemblee', 'connexion', 'passage', 'ouvrir', 'cercle'].includes(hash)) {
+        setCurrentPage(pageFromHash);
+      }
+    }
+  }, []);
+
+  // Determine if nav should be hidden
+  const hideNav = currentPage === 'cercle' || currentPage === 'passage' || currentPage === 'ouvrir';
 
   return (
     <>
@@ -49,48 +72,48 @@ export default function App() {
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
-          
+
           @media (max-width: 768px) {
             section {
               padding-left: 24px !important;
               padding-right: 24px !important;
             }
-            
+
             nav {
               padding: 20px 24px !important;
             }
-            
+
             nav > div {
               flex-direction: column !important;
               gap: 20px !important;
             }
-            
+
             nav > div > div {
               gap: 24px !important;
             }
-            
+
             /* BackButton responsive */
             button[style*="position: fixed"][style*="top: 24px"] {
               left: 24px !important;
               z-index: 10000 !important;
             }
-            
+
             button[style*="position: fixed"][style*="top: 24px"] span:last-child {
               display: none !important;
             }
-            
+
             /* Blason responsive - ensure visibility above nav */
             .blason-container {
               z-index: 10000 !important;
               top: 16px !important;
             }
           }
-          
+
           /* Transition fluide globale pour toutes les pages */
           .page-wrapper {
             animation: pageFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           }
-          
+
           @keyframes pageFadeIn {
             from {
               opacity: 0;
@@ -104,7 +127,7 @@ export default function App() {
         `}
       </style>
 
-      <div 
+      <div
         style={{
           minHeight: '100vh',
           background: '#FAF9F6',
@@ -119,13 +142,13 @@ export default function App() {
           <Blason onClick={() => navigateTo('cercle')} />
         )}
 
-        {/* BACK BUTTON — visible sur toutes les pages sauf home */}
-        {currentPage !== 'home' && (
+        {/* BACK BUTTON — visible sur toutes les pages sauf home et passage */}
+        {currentPage !== 'home' && currentPage !== 'passage' && (
           <BackButton onBack={() => navigateTo('home')} />
         )}
 
         {/* MENU TOP — discret, horizontal */}
-        <nav 
+        <nav
           style={{
             position: 'fixed',
             top: 0,
@@ -137,11 +160,11 @@ export default function App() {
             borderBottom: '0.5px solid rgba(0, 0, 0, 0.1)',
             padding: '0 40px',
             zIndex: 1000,
-            display: currentPage === 'cercle' ? 'none' : 'flex',
+            display: hideNav ? 'none' : 'flex',
             alignItems: 'center'
           }}
         >
-          <div 
+          <div
             style={{
               maxWidth: '1200px',
               margin: '0 auto',
@@ -165,10 +188,10 @@ export default function App() {
               onMouseEnter={(e) => e.currentTarget.style.opacity = '0.5'}
               onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
             >
-              <svg 
-                width="80" 
-                height="32" 
-                viewBox="0 0 527 598" 
+              <svg
+                width="80"
+                height="32"
+                viewBox="0 0 527 598"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: 'block' }}
               >
@@ -207,8 +230,8 @@ export default function App() {
               </svg>
             </button>
 
-            {/* Navigation — pas de Contact */}
-            <div 
+            {/* Navigation — New IA: CARTE, JOURNAL, ENTRER, ASSEMBLÉE, CONNEXION */}
+            <div
               style={{
                 display: 'flex',
                 gap: '40px',
@@ -237,7 +260,7 @@ export default function App() {
               </button>
 
               <button
-                onClick={() => navigateTo('chemin')}
+                onClick={() => navigateTo('journal')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '10px',
@@ -247,18 +270,18 @@ export default function App() {
                   background: 'transparent',
                   border: 'none',
                   color: '#2B2B2B',
-                  opacity: currentPage === 'chemin' ? 1 : 0.4,
+                  opacity: currentPage === 'journal' ? 1 : 0.4,
                   cursor: 'pointer',
                   transition: 'opacity 300ms ease'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'chemin' ? '1' : '0.4'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'journal' ? '1' : '0.4'}
               >
-                Chemin
+                Journal
               </button>
 
               <button
-                onClick={() => navigateTo('passeport')}
+                onClick={() => navigateTo('entrer')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '10px',
@@ -268,18 +291,18 @@ export default function App() {
                   background: 'transparent',
                   border: 'none',
                   color: '#2B2B2B',
-                  opacity: currentPage === 'passeport' ? 1 : 0.4,
+                  opacity: currentPage === 'entrer' ? 1 : 0.4,
                   cursor: 'pointer',
                   transition: 'opacity 300ms ease'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'passeport' ? '1' : '0.4'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'entrer' ? '1' : '0.4'}
               >
-                Passeport
+                Entrer
               </button>
 
               <button
-                onClick={() => navigateTo('cle')}
+                onClick={() => navigateTo('assemblee')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '10px',
@@ -289,18 +312,18 @@ export default function App() {
                   background: 'transparent',
                   border: 'none',
                   color: '#2B2B2B',
-                  opacity: currentPage === 'cle' ? 1 : 0.4,
+                  opacity: currentPage === 'assemblee' ? 1 : 0.4,
                   cursor: 'pointer',
                   transition: 'opacity 300ms ease'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'cle' ? '1' : '0.4'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'assemblee' ? '1' : '0.4'}
               >
-                Clé
+                Assemblée
               </button>
 
               <button
-                onClick={() => navigateTo('edile')}
+                onClick={() => navigateTo('connexion')}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '10px',
@@ -310,14 +333,14 @@ export default function App() {
                   background: 'transparent',
                   border: 'none',
                   color: '#2B2B2B',
-                  opacity: currentPage === 'edile' ? 1 : 0.4,
+                  opacity: currentPage === 'connexion' ? 1 : 0.4,
                   cursor: 'pointer',
                   transition: 'opacity 300ms ease'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'edile' ? '1' : '0.4'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = currentPage === 'connexion' ? '1' : '0.4'}
               >
-                Édile
+                Connexion
               </button>
             </div>
           </div>
@@ -327,10 +350,12 @@ export default function App() {
         <div key={currentPage} className="page-wrapper">
           {currentPage === 'home' && <Home onNavigate={navigateTo} />}
           {currentPage === 'carte' && <Carte onNavigate={navigateTo} />}
-          {currentPage === 'chemin' && <Chemin onNavigate={navigateTo} />}
-          {currentPage === 'passeport' && <Passeport onNavigate={navigateTo} />}
-          {currentPage === 'cle' && <Cle onNavigate={navigateTo} />}
-          {currentPage === 'edile' && <Edile onNavigate={navigateTo} />}
+          {currentPage === 'journal' && <Journal onNavigate={navigateTo} />}
+          {currentPage === 'entrer' && <Entrer onNavigate={navigateTo} />}
+          {currentPage === 'assemblee' && <Assemblee onNavigate={navigateTo} />}
+          {currentPage === 'connexion' && <Connexion onNavigate={navigateTo} />}
+          {currentPage === 'passage' && <Passage onNavigate={navigateTo} />}
+          {currentPage === 'ouvrir' && <Ouvrir />}
           {currentPage === 'cercle' && <Cercle onNavigate={navigateTo} />}
         </div>
       </div>

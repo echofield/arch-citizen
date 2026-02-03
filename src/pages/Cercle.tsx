@@ -6,9 +6,10 @@
 
 import { useState } from 'react';
 import { ImageWithFilter } from '../components/ImageWithFilter';
+import type { Page } from '../types/citizen';
 
 interface CercleProps {
-  onNavigate: (page: 'home' | 'passeport') => void;
+  onNavigate: (page: Page) => void;
 }
 
 export default function Cercle({ onNavigate }: CercleProps) {
@@ -589,7 +590,7 @@ export default function Cercle({ onNavigate }: CercleProps) {
           }}
         >
           <button
-            onClick={() => onNavigate('passeport')}
+            onClick={() => onNavigate('entrer')}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '11px',

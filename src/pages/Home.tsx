@@ -7,9 +7,10 @@ import { Blason } from '../components/Blason';
 import { PortalTransition } from '../components/PortalTransition';
 import { MiniCarte } from '../components/MiniCarte';
 import { useState, useCallback } from 'react';
+import type { Page } from '../types/citizen';
 
 interface HomeProps {
-  onNavigate: (page: 'carte' | 'chemin' | 'passeport' | 'cle' | 'edile' | 'cercle') => void;
+  onNavigate: (page: Page) => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -139,7 +140,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
                 {/* CTA principal */}
         <button
-          onClick={() => onNavigate('cle')}
+          onClick={() => onNavigate('entrer')}
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
@@ -351,10 +352,10 @@ export default function Home({ onNavigate }: HomeProps) {
           Certaines quêtes sont historiques. D'autres sont inventées. D'autres encore n'existent pas encore, elles attendent que quelqu'un les imagine.
         </p>
 
-        {/* CTA Quêtes */}
+        {/* CTA Journal */}
         <div style={{ textAlign: 'center' }}>
           <button
-            onClick={() => onNavigate('chemin')}
+            onClick={() => onNavigate('journal')}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '10px',
@@ -378,7 +379,7 @@ export default function Home({ onNavigate }: HomeProps) {
               e.currentTarget.style.borderColor = 'rgba(14, 63, 47, 0.25)';
             }}
           >
-            Suivre le chemin
+            Lire le journal
           </button>
         </div>
       </section>
